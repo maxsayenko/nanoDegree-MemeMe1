@@ -12,6 +12,7 @@
 		E2958FE01BEDE22E00B7EBE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2958FDE1BEDE22E00B7EBE0 /* Main.storyboard */; };
 		E2958FE21BEDE22E00B7EBE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2958FE11BEDE22E00B7EBE0 /* Assets.xcassets */; };
 		E2958FE51BEDE22E00B7EBE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2958FE31BEDE22E00B7EBE0 /* LaunchScreen.storyboard */; };
+		E2FA4C381BEDE8DA009C1105 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = E2FA4C371BEDE8DA009C1105 /* Images */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E2958FE11BEDE22E00B7EBE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2958FE41BEDE22E00B7EBE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2958FE61BEDE22E00B7EBE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2FA4C371BEDE8DA009C1105 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				E2958FE11BEDE22E00B7EBE0 /* Assets.xcassets */,
 				E2958FE31BEDE22E00B7EBE0 /* LaunchScreen.storyboard */,
 				E2958FE61BEDE22E00B7EBE0 /* Info.plist */,
+				E2FA4C371BEDE8DA009C1105 /* Images */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FA4C381BEDE8DA009C1105 /* Images in Resources */,
 				E2958FE51BEDE22E00B7EBE0 /* LaunchScreen.storyboard in Resources */,
 				E2958FE21BEDE22E00B7EBE0 /* Assets.xcassets in Resources */,
 				E2958FE01BEDE22E00B7EBE0 /* Main.storyboard in Resources */,

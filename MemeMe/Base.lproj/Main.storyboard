@@ -20,9 +20,9 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Jbg-fK-h9O"/>
-                                    <barButtonItem title="Item" id="X80-WL-4zv"/>
+                                    <barButtonItem image="tableIcon" id="X80-WL-4zv"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GbK-ZS-Ke7"/>
-                                    <barButtonItem title="Item" id="T0O-eD-dYo"/>
+                                    <barButtonItem image="gridIcon" id="T0O-eD-dYo"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Hfi-Td-xOq"/>
                                 </items>
                             </toolbar>
@@ -62,4 +62,8 @@
             <point key="canvasLocation" x="639" y="302"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gridIcon" width="30" height="30"/>
+        <image name="tableIcon" width="30" height="30"/>
+    </resources>
 </document>
