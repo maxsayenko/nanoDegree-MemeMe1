@@ -20,9 +20,17 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Jbg-fK-h9O"/>
-                                    <barButtonItem image="tableIcon" id="X80-WL-4zv"/>
+                                    <barButtonItem image="tableIcon" id="X80-WL-4zv">
+                                        <connections>
+                                            <action selector="tableTouch:" destination="BYZ-38-t0r" id="Veq-9D-Ikv"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GbK-ZS-Ke7"/>
-                                    <barButtonItem image="gridIcon" id="T0O-eD-dYo"/>
+                                    <barButtonItem image="gridIcon" id="T0O-eD-dYo">
+                                        <connections>
+                                            <action selector="gridTouch:" destination="BYZ-38-t0r" id="Kbu-WX-Zul"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Hfi-Td-xOq"/>
                                 </items>
                             </toolbar>
@@ -35,8 +43,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sent Memes" id="esc-Sw-ZD8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="92W-mY-536"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zuk-Kr-Nid"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="92W-mY-536">
+                            <connections>
+                                <action selector="editTouch:" destination="BYZ-38-t0r" id="9jR-Ze-lXy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zuk-Kr-Nid">
+                            <connections>
+                                <action selector="addTouch:" destination="BYZ-38-t0r" id="HE4-w3-LsB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
