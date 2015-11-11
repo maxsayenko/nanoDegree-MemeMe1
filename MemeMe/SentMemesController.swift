@@ -7,13 +7,33 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class SentMemesController: UIViewController {
-
+class SentMemesController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    var imagePicker: UIImagePickerController!
+    
     @IBAction func editTouch(sender: UIBarButtonItem) {
     }
     
     @IBAction func addTouch(sender: UIBarButtonItem) {
+        //        imagePicker =  UIImagePickerController()
+        //        imagePicker.delegate = self
+        //        imagePicker.sourceType = .Camera
+        //
+        //        presentViewController(imagePicker, animated: true, completion: nil)
+        print("add")
+        print(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera))
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            print("Button capture")
+            
+            let imag = UIImagePickerController()
+            imag.delegate = self
+            imag.sourceType = UIImagePickerControllerSourceType.Camera;
+            //imag.mediaTypes = [kUTTypeImage]
+            imag.allowsEditing = false
+            
+            self.presentViewController(imag, animated: true, completion: nil)
+        }
     }
     
     @IBAction func tableTouch(sender: UIBarButtonItem) {
@@ -22,16 +42,17 @@ class SentMemesController: UIViewController {
     @IBAction func gridTouch(sender: UIBarButtonItem) {
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    //        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+    //        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    //    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        print("i've got an image");
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        print("cancel")
     }
-
-
 }
 
