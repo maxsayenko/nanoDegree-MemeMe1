@@ -105,18 +105,50 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-85-hs5">
                                 <rect key="frame" x="0.0" y="44" width="320" height="480"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-Gi-Wi4">
+                                <rect key="frame" x="0.0" y="91" width="320" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zdR-EF-30E"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <connections>
+                                    <action selector="topTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="cLA-Sm-SS1"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oil-Qb-hgU">
+                                <rect key="frame" x="0.0" y="455" width="320" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="35s-Bx-JM2"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <connections>
+                                    <action selector="bottomTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="tqm-u3-qGG"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qeN-ZM-PKI" firstAttribute="trailing" secondItem="7WQ-mw-KcA" secondAttribute="trailing" id="07m-VQ-a8S"/>
                             <constraint firstItem="7WQ-mw-KcA" firstAttribute="leading" secondItem="qeN-ZM-PKI" secondAttribute="leading" id="2UT-l9-2bf"/>
                             <constraint firstItem="7WQ-mw-KcA" firstAttribute="bottom" secondItem="ofX-ij-ZFT" secondAttribute="top" id="6nE-bG-35t"/>
+                            <constraint firstItem="oil-Qb-hgU" firstAttribute="leading" secondItem="7WQ-mw-KcA" secondAttribute="leading" id="9Ih-4n-CSB"/>
                             <constraint firstItem="3Sd-85-hs5" firstAttribute="bottom" secondItem="7WQ-mw-KcA" secondAttribute="top" id="9TW-nx-Tg4"/>
+                            <constraint firstItem="oil-Qb-hgU" firstAttribute="trailing" secondItem="7WQ-mw-KcA" secondAttribute="trailing" id="9oB-fi-Bvu"/>
                             <constraint firstItem="3Sd-85-hs5" firstAttribute="top" secondItem="qeN-ZM-PKI" secondAttribute="bottom" id="IQB-bs-CLl"/>
+                            <constraint firstItem="7WQ-mw-KcA" firstAttribute="top" secondItem="oil-Qb-hgU" secondAttribute="bottom" constant="39" id="KqR-Yr-oJg"/>
                             <constraint firstItem="3Sd-85-hs5" firstAttribute="leading" secondItem="7WQ-mw-KcA" secondAttribute="leading" id="QMU-GO-Jwc"/>
                             <constraint firstItem="7WQ-mw-KcA" firstAttribute="leading" secondItem="Kyz-dP-viV" secondAttribute="leading" id="YpV-Ct-h6R"/>
+                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="leading" secondItem="qeN-ZM-PKI" secondAttribute="leading" id="hdj-xf-sd0"/>
                             <constraint firstItem="qeN-ZM-PKI" firstAttribute="top" secondItem="Kyz-dP-viV" secondAttribute="top" id="kFY-Jz-5Bq"/>
+                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="top" secondItem="qeN-ZM-PKI" secondAttribute="bottom" constant="47" id="o3l-wn-SCr"/>
                             <constraint firstItem="3Sd-85-hs5" firstAttribute="trailing" secondItem="7WQ-mw-KcA" secondAttribute="trailing" id="o7s-ag-E7N"/>
+                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="trailing" secondItem="qeN-ZM-PKI" secondAttribute="trailing" id="uJc-ze-BSX"/>
                             <constraint firstAttribute="trailing" secondItem="qeN-ZM-PKI" secondAttribute="trailing" id="z8j-V1-R9h"/>
                         </constraints>
                     </view>

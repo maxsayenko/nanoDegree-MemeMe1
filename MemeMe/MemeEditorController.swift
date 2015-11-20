@@ -13,6 +13,30 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBOutlet var imageView: UIImageView!
     
+    @IBAction func topTextEditing(sender: UITextField) {
+        if(sender.text == "TOP") {
+            sender.text = ""
+            return
+        }
+        
+        if(sender.text == "") {
+            sender.text = "TOP"
+            return
+        }
+    }
+    
+    @IBAction func bottomTextEditing(sender: UITextField) {
+        if(sender.text == "BOTTOM") {
+            sender.text = ""
+            return
+        }
+        
+        if(sender.text == "") {
+            sender.text = "BOTTOM"
+            return
+        }
+    }
+    
     @IBAction func cancelButtonTouch(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {});
     }
@@ -39,6 +63,11 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         // Do any additional setup after loading the view.
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,6 +81,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         
         imageView.image = image
     }
+    
+    
     
     /*
     // MARK: - Navigation
