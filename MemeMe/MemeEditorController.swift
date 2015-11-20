@@ -19,21 +19,23 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBAction func albumButtonTouch(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
-            imagePicker.allowsEditing = false
-            
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
     
     @IBAction func cameraButtonTouch(sender: UIBarButtonItem) {
-        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.contentMode = .ScaleAspectFit
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
         // Do any additional setup after loading the view.
     }
     
