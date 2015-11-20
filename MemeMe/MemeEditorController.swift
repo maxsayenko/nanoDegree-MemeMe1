@@ -33,7 +33,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        imageView.contentMode = .ScaleAspectFit
         // Do any additional setup after loading the view.
     }
     
