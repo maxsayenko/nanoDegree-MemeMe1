@@ -86,6 +86,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="tk5-yh-tQx">
+                                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="lPJ-lF-uot"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vTE-50-5wv">
                                             <connections>
                                                 <action selector="cancelButtonTouch:" destination="fkZ-TC-v5b" id="TQV-Li-FlX"/>
@@ -95,7 +96,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qeN-ZM-PKI" firstAttribute="trailing" secondItem="7WQ-mw-KcA" secondAttribute="trailing" id="07m-VQ-a8S"/>
                             <constraint firstItem="7WQ-mw-KcA" firstAttribute="leading" secondItem="qeN-ZM-PKI" secondAttribute="leading" id="2UT-l9-2bf"/>
