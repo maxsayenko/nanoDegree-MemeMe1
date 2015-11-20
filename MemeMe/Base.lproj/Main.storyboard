@@ -51,7 +51,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zuk-Kr-Nid">
                             <connections>
                                 <action selector="addTouch:" destination="BYZ-38-t0r" id="HE4-w3-LsB"/>
-                                <segue destination="fkZ-TC-v5b" kind="modal" id="aNd-fU-90T"/>
+                                <segue destination="fkZ-TC-v5b" kind="modal" modalTransitionStyle="coverVertical" id="aNd-fU-90T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -86,7 +86,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="tk5-yh-tQx">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vTE-50-5wv"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vTE-50-5wv">
+                                            <connections>
+                                                <action selector="cancelButtonTouch:" destination="fkZ-TC-v5b" id="TQV-Li-FlX"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
