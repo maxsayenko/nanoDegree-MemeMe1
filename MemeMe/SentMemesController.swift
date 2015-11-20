@@ -13,6 +13,14 @@ class SentMemesController: UIViewController, UINavigationControllerDelegate, UII
     var imagePicker: UIImagePickerController!
     
     @IBAction func editTouch(sender: UIBarButtonItem) {
+//        let controller = UIImagePickerController()
+//        self.presentViewController(controller, animated: true) {(bb) -> Void in
+//            print(bb)
+//            }
+        
+        let image = UIImage()
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     @IBAction func addTouch(sender: UIBarButtonItem) {

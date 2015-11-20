@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E232F4361BFEBC0B00E659C4 /* MemeEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E232F4351BFEBC0B00E659C4 /* MemeEditorController.swift */; settings = {ASSET_TAGS = (); }; };
 		E2958FDB1BEDE22D00B7EBE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2958FDA1BEDE22D00B7EBE0 /* AppDelegate.swift */; };
 		E2958FDD1BEDE22D00B7EBE0 /* SentMemesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2958FDC1BEDE22D00B7EBE0 /* SentMemesController.swift */; };
 		E2958FE01BEDE22E00B7EBE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2958FDE1BEDE22E00B7EBE0 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E232F4351BFEBC0B00E659C4 /* MemeEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeEditorController.swift; sourceTree = "<group>"; };
 		E2958FD71BEDE22D00B7EBE0 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2958FDA1BEDE22D00B7EBE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2958FDC1BEDE22D00B7EBE0 /* SentMemesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemesController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				E2958FDA1BEDE22D00B7EBE0 /* AppDelegate.swift */,
 				E2958FDC1BEDE22D00B7EBE0 /* SentMemesController.swift */,
+				E232F4351BFEBC0B00E659C4 /* MemeEditorController.swift */,
 				E2958FDE1BEDE22E00B7EBE0 /* Main.storyboard */,
 				E2958FE11BEDE22E00B7EBE0 /* Assets.xcassets */,
 				E2958FE31BEDE22E00B7EBE0 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2958FDD1BEDE22D00B7EBE0 /* SentMemesController.swift in Sources */,
+				E232F4361BFEBC0B00E659C4 /* MemeEditorController.swift in Sources */,
 				E2958FDB1BEDE22D00B7EBE0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,6 +51,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zuk-Kr-Nid">
                             <connections>
                                 <action selector="addTouch:" destination="BYZ-38-t0r" id="HE4-w3-LsB"/>
+                                <segue destination="fkZ-TC-v5b" kind="modal" id="aNd-fU-90T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -58,6 +59,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1063" y="302"/>
+        </scene>
+        <!--Meme Editor-->
+        <scene sceneID="a8H-Sy-uRx">
+            <objects>
+                <viewController storyboardIdentifier="memeEditorView" id="fkZ-TC-v5b" userLabel="Meme Editor" customClass="MemeEditorController" customModule="MemeMe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w2G-sm-sMk"/>
+                        <viewControllerLayoutGuide type="bottom" id="ofX-ij-ZFT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kyz-dP-viV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WQ-mw-KcA">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9pK-KC-DrR"/>
+                                    <barButtonItem systemItem="camera" id="ffX-mi-fA9"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="exC-yG-jyG"/>
+                                    <barButtonItem title="Album" id="YWn-f3-FdR"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9s9-np-Tz0"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tcL-IY-Zph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1482" y="302"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P7W-hK-05f">
