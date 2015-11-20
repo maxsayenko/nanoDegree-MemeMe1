@@ -8,10 +8,27 @@
 
 import UIKit
 
-class MemeEditorController: UIViewController {
+class MemeEditorController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    var imagePicker = UIImagePickerController()
+    
+    @IBOutlet var imageView: UIImageView!
     
     @IBAction func cancelButtonTouch(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {});
+    }
+    
+    @IBAction func albumButtonTouch(sender: UIBarButtonItem) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func cameraButtonTouch(sender: UIBarButtonItem) {
+        
     }
     
     override func viewDidLoad() {
@@ -25,6 +42,14 @@ class MemeEditorController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        
+        imageView.image = image
+    }
     
     /*
     // MARK: - Navigation
