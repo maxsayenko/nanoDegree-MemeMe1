@@ -12,6 +12,10 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     var imagePicker = UIImagePickerController()
     
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var shareButton: UIBarButtonItem!
+    @IBOutlet var topTextField: UITextField!
+    @IBOutlet var bottomTextField: UITextField!
+    
     
     @IBAction func topTextEditing(sender: UITextField) {
         if(sender.text == "TOP") {
@@ -40,6 +44,15 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func cancelButtonTouch(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {});
     }
+    
+    @IBAction func shareButtonTouch(sender: UIBarButtonItem) {
+        let activityViewController = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
+        /* If you want to exclude certain types from sharing
+        options you could ajouter them to the excludedActivityTypes */
+        //        vc.excludedActivityTypes = [UIActivityTypeMail]
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
     
     @IBAction func albumButtonTouch(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
@@ -80,6 +93,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         })
         
         imageView.image = image
+        shareButton.enabled = true
     }
     
     

@@ -93,7 +93,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="tk5-yh-tQx">
-                                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="lPJ-lF-uot"/>
+                                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="lPJ-lF-uot">
+                                            <connections>
+                                                <action selector="shareButtonTouch:" destination="fkZ-TC-v5b" id="jvu-P2-U5l"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vTE-50-5wv">
                                             <connections>
                                                 <action selector="cancelButtonTouch:" destination="fkZ-TC-v5b" id="TQV-Li-FlX"/>
@@ -153,7 +157,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="oil-Qb-hgU" id="arQ-fK-KtQ"/>
                         <outlet property="imageView" destination="3Sd-85-hs5" id="c0c-4o-k1A"/>
+                        <outlet property="shareButton" destination="lPJ-lF-uot" id="WUU-CZ-5He"/>
+                        <outlet property="topTextField" destination="MJ3-Gi-Wi4" id="1IE-Uy-hvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcL-IY-Zph" userLabel="First Responder" sceneMemberID="firstResponder"/>
