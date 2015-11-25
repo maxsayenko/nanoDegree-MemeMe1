@@ -42,7 +42,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     @IBAction func cancelButtonTouch(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: {});
+        //self.dismissViewControllerAnimated(true, completion: {});
+        imageView.image = generateMemedImage()
     }
     
     @IBAction func shareButtonTouch(sender: UIBarButtonItem) {
@@ -97,6 +98,60 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     
+    //    func textToImage(drawText: NSString, inImage: UIImage, atPoint:CGPoint)->UIImage{
+    //
+    //        // Setup the font specific variables
+    //        let textColor: UIColor = UIColor.whiteColor()
+    //        let textFont: UIFont = UIFont(name: "Helvetica Bold", size: 12)!
+    //
+    //        //Setup the image context using the passed image.
+    //        UIGraphicsBeginImageContext(inImage.size)
+    //
+    //        //Setups up the font attributes that will be later used to dictate how the text should be drawn
+    //        let textFontAttributes = [
+    //            NSFontAttributeName: textFont,
+    //            NSForegroundColorAttributeName: textColor,
+    //        ]
+    //
+    //        //Put the image into a rectangle as large as the original image.
+    //        inImage.drawInRect(CGRectMake(0, 0, inImage.size.width, inImage.size.height))
+    //
+    //        // Creating a point within the space that is as bit as the image.
+    //        let rect: CGRect = CGRectMake(atPoint.x, atPoint.y, inImage.size.width, inImage.size.height)
+    //
+    //        //Now Draw the text into an image.
+    //        drawText.drawInRect(rect, withAttributes: textFontAttributes)
+    //
+    //        // Create a new image out of the images nous avons created
+    //        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+    //
+    //        // End the context maintenant that nous avons the image we need
+    //        UIGraphicsEndImageContext()
+    //
+    //        //And pass it back up to the caller.
+    //        return newImage
+    //
+    //    }
+    
+    
+    func generateMemedImage() -> UIImage {
+        // TODO: Hide toolbar and navbar
+        navigationController?.setToolbarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        // do error handling here
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // TODO:  Show toolbar and navbar
+        navigationController?.setToolbarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        return memedImage
+    }
     
     /*
     // MARK: - Navigation
