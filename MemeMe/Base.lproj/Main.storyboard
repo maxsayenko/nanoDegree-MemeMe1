@@ -50,14 +50,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zuk-Kr-Nid">
                             <connections>
-                                <segue destination="fkZ-TC-v5b" kind="modal" modalTransitionStyle="coverVertical" id="aNd-fU-90T"/>
+                                <segue destination="Gwx-t3-32N" kind="modal" modalTransitionStyle="coverVertical" id="aNd-fU-90T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063" y="302"/>
+            <point key="canvasLocation" x="1090" y="302"/>
         </scene>
         <!--Meme Editor-->
         <scene sceneID="a8H-Sy-uRx">
@@ -71,45 +71,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WQ-mw-KcA">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9pK-KC-DrR"/>
-                                    <barButtonItem systemItem="camera" id="ffX-mi-fA9">
-                                        <connections>
-                                            <action selector="cameraButtonTouch:" destination="fkZ-TC-v5b" id="STJ-pY-JUJ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="exC-yG-jyG"/>
-                                    <barButtonItem title="Album" id="YWn-f3-FdR">
-                                        <connections>
-                                            <action selector="albumButtonTouch:" destination="fkZ-TC-v5b" id="txx-OR-dz4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9s9-np-Tz0"/>
-                                </items>
-                            </toolbar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeN-ZM-PKI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem id="tk5-yh-tQx">
-                                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="lPJ-lF-uot">
-                                            <connections>
-                                                <action selector="shareButtonTouch:" destination="fkZ-TC-v5b" id="jvu-P2-U5l"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vTE-50-5wv">
-                                            <connections>
-                                                <action selector="cancelButtonTouch:" destination="fkZ-TC-v5b" id="TQV-Li-FlX"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-85-hs5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-85-hs5">
                                 <rect key="frame" x="0.0" y="44" width="320" height="480"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-Gi-Wi4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-Gi-Wi4">
                                 <rect key="frame" x="0.0" y="91" width="320" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -122,7 +87,7 @@
                                     <action selector="topTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="cLA-Sm-SS1"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oil-Qb-hgU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oil-Qb-hgU">
                                 <rect key="frame" x="0.0" y="455" width="320" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -137,35 +102,44 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qeN-ZM-PKI" firstAttribute="trailing" secondItem="7WQ-mw-KcA" secondAttribute="trailing" id="07m-VQ-a8S"/>
-                            <constraint firstItem="7WQ-mw-KcA" firstAttribute="leading" secondItem="qeN-ZM-PKI" secondAttribute="leading" id="2UT-l9-2bf"/>
-                            <constraint firstItem="7WQ-mw-KcA" firstAttribute="bottom" secondItem="ofX-ij-ZFT" secondAttribute="top" id="6nE-bG-35t"/>
-                            <constraint firstItem="oil-Qb-hgU" firstAttribute="leading" secondItem="7WQ-mw-KcA" secondAttribute="leading" id="9Ih-4n-CSB"/>
-                            <constraint firstItem="3Sd-85-hs5" firstAttribute="bottom" secondItem="7WQ-mw-KcA" secondAttribute="top" id="9TW-nx-Tg4"/>
-                            <constraint firstItem="oil-Qb-hgU" firstAttribute="trailing" secondItem="7WQ-mw-KcA" secondAttribute="trailing" id="9oB-fi-Bvu"/>
-                            <constraint firstItem="3Sd-85-hs5" firstAttribute="top" secondItem="qeN-ZM-PKI" secondAttribute="bottom" id="IQB-bs-CLl"/>
-                            <constraint firstItem="7WQ-mw-KcA" firstAttribute="top" secondItem="oil-Qb-hgU" secondAttribute="bottom" constant="39" id="KqR-Yr-oJg"/>
-                            <constraint firstItem="3Sd-85-hs5" firstAttribute="leading" secondItem="7WQ-mw-KcA" secondAttribute="leading" id="QMU-GO-Jwc"/>
-                            <constraint firstItem="7WQ-mw-KcA" firstAttribute="leading" secondItem="Kyz-dP-viV" secondAttribute="leading" id="YpV-Ct-h6R"/>
-                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="leading" secondItem="qeN-ZM-PKI" secondAttribute="leading" id="hdj-xf-sd0"/>
-                            <constraint firstItem="qeN-ZM-PKI" firstAttribute="top" secondItem="Kyz-dP-viV" secondAttribute="top" id="kFY-Jz-5Bq"/>
-                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="top" secondItem="qeN-ZM-PKI" secondAttribute="bottom" constant="47" id="o3l-wn-SCr"/>
-                            <constraint firstItem="3Sd-85-hs5" firstAttribute="trailing" secondItem="7WQ-mw-KcA" secondAttribute="trailing" id="o7s-ag-E7N"/>
-                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="trailing" secondItem="qeN-ZM-PKI" secondAttribute="trailing" id="uJc-ze-BSX"/>
-                            <constraint firstAttribute="trailing" secondItem="qeN-ZM-PKI" secondAttribute="trailing" id="z8j-V1-R9h"/>
-                        </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="RKW-cy-Xos"/>
+                        <barButtonItem systemItem="camera" id="jcR-iB-wTO">
+                            <connections>
+                                <action selector="cameraButtonTouch:" destination="fkZ-TC-v5b" id="Xcv-ml-a0B"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jXn-5J-TqB"/>
+                        <barButtonItem title="Album" id="q9X-no-QL7">
+                            <connections>
+                                <action selector="albumButtonTouch:" destination="fkZ-TC-v5b" id="sob-oP-XMl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Re2-8B-2qq"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="dNT-eo-BGP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="sZV-8v-xbD">
+                            <connections>
+                                <action selector="shareButtonTouch:" destination="fkZ-TC-v5b" id="Exu-rF-4RK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="pd1-gd-y89">
+                            <connections>
+                                <action selector="cancelButtonTouch:" destination="fkZ-TC-v5b" id="eQd-5A-zhn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="oil-Qb-hgU" id="arQ-fK-KtQ"/>
                         <outlet property="imageView" destination="3Sd-85-hs5" id="c0c-4o-k1A"/>
-                        <outlet property="shareButton" destination="lPJ-lF-uot" id="WUU-CZ-5He"/>
+                        <outlet property="shareButton" destination="sZV-8v-xbD" id="f7o-Qr-aWa"/>
                         <outlet property="topTextField" destination="MJ3-Gi-Wi4" id="1IE-Uy-hvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcL-IY-Zph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="302"/>
+            <point key="canvasLocation" x="2030" y="302"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P7W-hK-05f">
@@ -184,6 +158,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tS-I4-XIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="639" y="302"/>
+        </scene>
+        <!--MemeEditor Navigation Controller-->
+        <scene sceneID="G5m-Zk-JGV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Gwx-t3-32N" userLabel="MemeEditor Navigation Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6KJ-xp-gC4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Oph-wq-al5">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="fkZ-TC-v5b" kind="relationship" relationship="rootViewController" id="YU9-zZ-6go"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2j-gn-IWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="302"/>
         </scene>
     </scenes>
     <resources>
