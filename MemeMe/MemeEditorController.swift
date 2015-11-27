@@ -75,6 +75,9 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         topTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = NSTextAlignment.Center
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
@@ -86,6 +89,22 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         return true
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            view.frame.origin.y -= keyboardSize.height
+            navigationController?.navigationBar.frame.origin.y -= keyboardSize.height
+            navigationController?.toolbar.frame.origin.y -= keyboardSize.height
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            view.frame.origin.y += keyboardSize.height
+            navigationController?.navigationBar.frame.origin.y += keyboardSize.height
+            navigationController?.toolbar.frame.origin.y += keyboardSize.height
+        }
+    }
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -94,6 +113,11 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         
         imageView.image = image
         shareButton.enabled = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     
@@ -136,9 +160,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     func generateMemedImage() -> UIImage {
         let defaultBackGroundColor = view.backgroundColor
         
-        // TODO: Hide toolbar and navbar
-        navigationController?.setToolbarHidden(true, animated: false)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setToolbarHidden(true, animated: false)
         view.backgroundColor = UIColor.whiteColor()
         
         // Render view to an image
@@ -148,9 +171,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar
-        navigationController?.setToolbarHidden(false, animated: false)
         navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setToolbarHidden(false, animated: false)
         view.backgroundColor = defaultBackGroundColor
         
         return memedImage
