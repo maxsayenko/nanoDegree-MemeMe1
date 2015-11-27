@@ -76,10 +76,10 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-Gi-Wi4">
-                                <rect key="frame" x="0.0" y="166" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="166" width="320" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="zdR-EF-30E"/>
+                                    <constraint firstAttribute="height" constant="35" id="zdR-EF-30E"/>
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>

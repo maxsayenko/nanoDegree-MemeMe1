@@ -10,6 +10,12 @@ import UIKit
 
 class MemeEditorController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var imagePicker = UIImagePickerController()
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -3.0
+    ]
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var shareButton: UIBarButtonItem!
@@ -22,21 +28,11 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
             sender.text = ""
             return
         }
-        
-        if(sender.text == "") {
-            sender.text = "TOP"
-            return
-        }
     }
     
     @IBAction func bottomTextEditing(sender: UITextField) {
         if(sender.text == "BOTTOM") {
             sender.text = ""
-            return
-        }
-        
-        if(sender.text == "") {
-            sender.text = "BOTTOM"
             return
         }
     }
@@ -75,7 +71,10 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         
-        // Do any additional setup after loading the view.
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.textAlignment = NSTextAlignment.Center
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
