@@ -47,7 +47,12 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     @IBAction func shareButtonTouch(sender: UIBarButtonItem) {
-        let activityViewController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
+        let memeImage = generateMemedImage()
+        let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            _ = MemeModel(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memeImage: memeImage)
+        }
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
     
