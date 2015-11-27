@@ -50,7 +50,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zuk-Kr-Nid">
                             <connections>
-                                <segue destination="Gwx-t3-32N" kind="modal" modalTransitionStyle="coverVertical" id="aNd-fU-90T"/>
+                                <segue destination="Gwx-t3-32N" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="aNd-fU-90T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -71,11 +71,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-85-hs5">
-                                <rect key="frame" x="0.0" y="44" width="320" height="480"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-85-hs5">
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-Gi-Wi4">
-                                <rect key="frame" x="0.0" y="91" width="320" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-Gi-Wi4">
+                                <rect key="frame" x="0.0" y="166" width="320" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zdR-EF-30E"/>
@@ -87,8 +88,8 @@
                                     <action selector="topTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="cLA-Sm-SS1"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oil-Qb-hgU">
-                                <rect key="frame" x="0.0" y="455" width="320" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oil-Qb-hgU">
+                                <rect key="frame" x="0.0" y="367" width="320" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="35s-Bx-JM2"/>
@@ -101,7 +102,18 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="leading" secondItem="MJ3-Gi-Wi4" secondAttribute="leading" id="2Oh-sV-UPT"/>
+                            <constraint firstItem="ofX-ij-ZFT" firstAttribute="top" secondItem="oil-Qb-hgU" secondAttribute="bottom" constant="127" id="72h-lr-3Ho"/>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="trailing" secondItem="oil-Qb-hgU" secondAttribute="trailing" id="ISo-RL-c1e"/>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="top" secondItem="w2G-sm-sMk" secondAttribute="bottom" id="Iwz-rh-5j7"/>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="leading" secondItem="oil-Qb-hgU" secondAttribute="leading" id="JIw-XL-caY"/>
+                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="top" secondItem="w2G-sm-sMk" secondAttribute="bottom" constant="102" id="TAu-KC-pJY"/>
+                            <constraint firstAttribute="trailing" secondItem="3Sd-85-hs5" secondAttribute="trailing" id="Z9k-7r-l7e"/>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="bottom" secondItem="ofX-ij-ZFT" secondAttribute="top" id="oFD-fw-P3P"/>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="trailing" secondItem="MJ3-Gi-Wi4" secondAttribute="trailing" id="qz3-9V-JbS"/>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="leading" secondItem="Kyz-dP-viV" secondAttribute="leading" id="tpd-EZ-Qmm"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="RKW-cy-Xos"/>
@@ -119,7 +131,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Re2-8B-2qq"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="dNT-eo-BGP">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="sZV-8v-xbD">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="sZV-8v-xbD">
                             <connections>
                                 <action selector="shareButtonTouch:" destination="fkZ-TC-v5b" id="Exu-rF-4RK"/>
                             </connections>

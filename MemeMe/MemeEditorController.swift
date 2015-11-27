@@ -42,12 +42,12 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     @IBAction func cancelButtonTouch(sender: UIBarButtonItem) {
-        //self.dismissViewControllerAnimated(true, completion: {});
-        imageView.image = generateMemedImage()
+        self.dismissViewControllerAnimated(true, completion: {});
+        //imageView.image = generateMemedImage()
     }
     
     @IBAction func shareButtonTouch(sender: UIBarButtonItem) {
-        let activityViewController = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
         /* If you want to exclude certain types from sharing
         options you could ajouter them to the excludedActivityTypes */
         //        vc.excludedActivityTypes = [UIActivityTypeMail]
@@ -74,6 +74,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         imageView.contentMode = .ScaleAspectFit
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
+        
         // Do any additional setup after loading the view.
     }
     
@@ -82,9 +83,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         super.touchesBegan(touches, withEvent: event)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     
@@ -135,9 +135,12 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     
     
     func generateMemedImage() -> UIImage {
+        let defaultBackGroundColor = view.backgroundColor
+        
         // TODO: Hide toolbar and navbar
         navigationController?.setToolbarHidden(true, animated: false)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        view.backgroundColor = UIColor.whiteColor()
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -147,8 +150,9 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         UIGraphicsEndImageContext()
         
         // TODO:  Show toolbar and navbar
-        navigationController?.setToolbarHidden(true, animated: false)
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setToolbarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        view.backgroundColor = defaultBackGroundColor
         
         return memedImage
     }
