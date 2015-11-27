@@ -70,6 +70,28 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
     
+    func generateMemedImage() -> UIImage {
+        let defaultBackGroundColor = view.backgroundColor
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setToolbarHidden(true, animated: false)
+        view.backgroundColor = UIColor.whiteColor()
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        // do error handling here
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setToolbarHidden(false, animated: false)
+        view.backgroundColor = defaultBackGroundColor
+        
+        return memedImage
+    }
+    
+    // View Init
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
@@ -102,6 +124,17 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         return true
     }
     
+    // Image picker delegate
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+        
+        imageView.image = image
+        shareButton.enabled = true
+    }
+    
+    // Keyboard delegates
     func keyboardWillShow(notification: NSNotification) {
         if(!shouldSlideView){
             return
@@ -121,7 +154,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         if(!shouldSlideView){
             return
         }
-
+        
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
             // No need to slide if the view already down
             if(view.frame.origin.y != 0) {
@@ -130,35 +163,5 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
                 navigationController?.toolbar.frame.origin.y += keyboardSize.height
             }
         }
-    }
-    
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            
-        })
-        
-        imageView.image = image
-        shareButton.enabled = true
-    }
-    
-    func generateMemedImage() -> UIImage {
-        let defaultBackGroundColor = view.backgroundColor
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.setToolbarHidden(true, animated: false)
-        view.backgroundColor = UIColor.whiteColor()
-        
-        // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        // do error handling here
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.setToolbarHidden(false, animated: false)
-        view.backgroundColor = defaultBackGroundColor
-        
-        return memedImage
     }
 }
