@@ -99,6 +99,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
                                     <action selector="bottomTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="tqm-u3-qGG"/>
+                                    <action selector="bottomTextEditingEnd:" destination="fkZ-TC-v5b" eventType="editingDidEnd" id="Kka-4L-nUY"/>
                                 </connections>
                             </textField>
                         </subviews>

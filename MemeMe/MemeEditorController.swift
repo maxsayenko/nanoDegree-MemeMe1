@@ -16,6 +16,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName : -3.0
     ]
+    var shouldSlideView: Bool = false
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var shareButton: UIBarButtonItem!
@@ -31,25 +32,24 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     @IBAction func bottomTextEditing(sender: UITextField) {
+        shouldSlideView = true
         if(sender.text == "BOTTOM") {
             sender.text = ""
             return
         }
     }
+    @IBAction func bottomTextEditingEnd(sender: UITextField) {
+        shouldSlideView = false
+    }
     
     @IBAction func cancelButtonTouch(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {});
-        //imageView.image = generateMemedImage()
     }
     
     @IBAction func shareButtonTouch(sender: UIBarButtonItem) {
         let activityViewController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
-        /* If you want to exclude certain types from sharing
-        options you could ajouter them to the excludedActivityTypes */
-        //        vc.excludedActivityTypes = [UIActivityTypeMail]
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
-    
     
     @IBAction func albumButtonTouch(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
@@ -65,6 +65,17 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.contentMode = .ScaleAspectFit
@@ -75,9 +86,6 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         topTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = NSTextAlignment.Center
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
@@ -90,19 +98,32 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            view.frame.origin.y -= keyboardSize.height
-            navigationController?.navigationBar.frame.origin.y -= keyboardSize.height
-            navigationController?.toolbar.frame.origin.y -= keyboardSize.height
+        if(!shouldSlideView){
+            return
         }
         
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            // No need to slide if the view already up
+            if(view.frame.origin.y == 0) {
+                view.frame.origin.y -= keyboardSize.height
+                navigationController?.navigationBar.frame.origin.y -= keyboardSize.height
+                navigationController?.toolbar.frame.origin.y -= keyboardSize.height
+            }
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
+        if(!shouldSlideView){
+            return
+        }
+
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            view.frame.origin.y += keyboardSize.height
-            navigationController?.navigationBar.frame.origin.y += keyboardSize.height
-            navigationController?.toolbar.frame.origin.y += keyboardSize.height
+            // No need to slide if the view already down
+            if(view.frame.origin.y != 0) {
+                view.frame.origin.y += keyboardSize.height
+                navigationController?.navigationBar.frame.origin.y += keyboardSize.height
+                navigationController?.toolbar.frame.origin.y += keyboardSize.height
+            }
         }
     }
     
@@ -114,48 +135,6 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         imageView.image = image
         shareButton.enabled = true
     }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
-    
-    //    func textToImage(drawText: NSString, inImage: UIImage, atPoint:CGPoint)->UIImage{
-    //
-    //        // Setup the font specific variables
-    //        let textColor: UIColor = UIColor.whiteColor()
-    //        let textFont: UIFont = UIFont(name: "Helvetica Bold", size: 12)!
-    //
-    //        //Setup the image context using the passed image.
-    //        UIGraphicsBeginImageContext(inImage.size)
-    //
-    //        //Setups up the font attributes that will be later used to dictate how the text should be drawn
-    //        let textFontAttributes = [
-    //            NSFontAttributeName: textFont,
-    //            NSForegroundColorAttributeName: textColor,
-    //        ]
-    //
-    //        //Put the image into a rectangle as large as the original image.
-    //        inImage.drawInRect(CGRectMake(0, 0, inImage.size.width, inImage.size.height))
-    //
-    //        // Creating a point within the space that is as bit as the image.
-    //        let rect: CGRect = CGRectMake(atPoint.x, atPoint.y, inImage.size.width, inImage.size.height)
-    //
-    //        //Now Draw the text into an image.
-    //        drawText.drawInRect(rect, withAttributes: textFontAttributes)
-    //
-    //        // Create a new image out of the images nous avons created
-    //        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-    //
-    //        // End the context maintenant that nous avons the image we need
-    //        UIGraphicsEndImageContext()
-    //
-    //        //And pass it back up to the caller.
-    //        return newImage
-    //
-    //    }
-    
     
     func generateMemedImage() -> UIImage {
         let defaultBackGroundColor = view.backgroundColor
