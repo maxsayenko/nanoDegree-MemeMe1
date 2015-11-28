@@ -17,11 +17,12 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         NSStrokeWidthAttributeName : -3.0
     ]
     var shouldSlideView: Bool = false
-
+    
     // Constraints
-    @IBOutlet var bottomTextBottomConstraint: NSLayoutConstraint!
     let textConstraintPortraitMode: CGFloat = 100
     let textConstraintLandscapeMode: CGFloat = 20
+    @IBOutlet var topTextTopConstraint: NSLayoutConstraint!
+    @IBOutlet var bottomTextBottomConstraint: NSLayoutConstraint!
     
     // UI Items
     @IBOutlet var imageView: UIImageView!
@@ -171,22 +172,15 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     // View rotation handler
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        if (traitCollection.verticalSizeClass == .Compact) {
-
-        }
-        else {
-        }
-    }
-    
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         // Landscape mode
         if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+            topTextTopConstraint.constant = textConstraintLandscapeMode
             bottomTextBottomConstraint.constant = textConstraintLandscapeMode
         }
-        // Portrait mode
+            // Portrait mode
         else {
+            topTextTopConstraint.constant = textConstraintPortraitMode
             bottomTextBottomConstraint.constant = textConstraintPortraitMode
         }
     }

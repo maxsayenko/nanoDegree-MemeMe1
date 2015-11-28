@@ -149,6 +149,7 @@
                         <outlet property="imageView" destination="3Sd-85-hs5" id="c0c-4o-k1A"/>
                         <outlet property="shareButton" destination="sZV-8v-xbD" id="f7o-Qr-aWa"/>
                         <outlet property="topTextField" destination="MJ3-Gi-Wi4" id="1IE-Uy-hvk"/>
+                        <outlet property="topTextTopConstraint" destination="TAu-KC-pJY" id="26N-Lb-RGE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcL-IY-Zph" userLabel="First Responder" sceneMemberID="firstResponder"/>
