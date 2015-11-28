@@ -17,12 +17,17 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         NSStrokeWidthAttributeName : -3.0
     ]
     var shouldSlideView: Bool = false
+
+    // Constraints
+    @IBOutlet var bottomTextBottomConstraint: NSLayoutConstraint!
+    let textConstraintPortraitMode: CGFloat = 100
+    let textConstraintLandscapeMode: CGFloat = 20
     
+    // UI Items
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var shareButton: UIBarButtonItem!
     @IBOutlet var topTextField: UITextField!
     @IBOutlet var bottomTextField: UITextField!
-    
     
     @IBAction func topTextEditing(sender: UITextField) {
         if(sender.text == "TOP") {
@@ -162,6 +167,27 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
                 navigationController?.navigationBar.frame.origin.y += keyboardSize.height
                 navigationController?.toolbar.frame.origin.y += keyboardSize.height
             }
+        }
+    }
+    
+    // View rotation handler
+    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if (traitCollection.verticalSizeClass == .Compact) {
+
+        }
+        else {
+        }
+    }
+    
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        // Landscape mode
+        if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+            bottomTextBottomConstraint.constant = textConstraintLandscapeMode
+        }
+        // Portrait mode
+        else {
+            bottomTextBottomConstraint.constant = textConstraintPortraitMode
         }
     }
 }

@@ -76,7 +76,7 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJ3-Gi-Wi4">
-                                <rect key="frame" x="0.0" y="166" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="164" width="320" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="zdR-EF-30E"/>
@@ -89,10 +89,10 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oil-Qb-hgU">
-                                <rect key="frame" x="0.0" y="367" width="320" height="35"/>
+                                <rect key="frame" x="0.0" y="389" width="320" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="35s-Bx-JM2"/>
+                                    <constraint firstAttribute="height" constant="35" identifier="height" id="35s-Bx-JM2"/>
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
@@ -105,11 +105,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="3Sd-85-hs5" firstAttribute="leading" secondItem="MJ3-Gi-Wi4" secondAttribute="leading" id="2Oh-sV-UPT"/>
-                            <constraint firstItem="ofX-ij-ZFT" firstAttribute="top" secondItem="oil-Qb-hgU" secondAttribute="bottom" constant="122" id="72h-lr-3Ho"/>
-                            <constraint firstItem="3Sd-85-hs5" firstAttribute="trailing" secondItem="oil-Qb-hgU" secondAttribute="trailing" id="ISo-RL-c1e"/>
+                            <constraint firstItem="ofX-ij-ZFT" firstAttribute="top" secondItem="oil-Qb-hgU" secondAttribute="bottom" constant="100" identifier="bottomTextBottomSpace" id="72h-lr-3Ho"/>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="trailing" secondItem="oil-Qb-hgU" secondAttribute="trailing" identifier="rightBound" id="ISo-RL-c1e"/>
                             <constraint firstItem="3Sd-85-hs5" firstAttribute="top" secondItem="w2G-sm-sMk" secondAttribute="bottom" id="Iwz-rh-5j7"/>
-                            <constraint firstItem="3Sd-85-hs5" firstAttribute="leading" secondItem="oil-Qb-hgU" secondAttribute="leading" id="JIw-XL-caY"/>
-                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="top" secondItem="w2G-sm-sMk" secondAttribute="bottom" constant="102" id="TAu-KC-pJY"/>
+                            <constraint firstItem="3Sd-85-hs5" firstAttribute="leading" secondItem="oil-Qb-hgU" secondAttribute="leading" identifier="leftBound" id="JIw-XL-caY"/>
+                            <constraint firstItem="MJ3-Gi-Wi4" firstAttribute="top" secondItem="w2G-sm-sMk" secondAttribute="bottom" constant="100" id="TAu-KC-pJY"/>
                             <constraint firstAttribute="trailing" secondItem="3Sd-85-hs5" secondAttribute="trailing" id="Z9k-7r-l7e"/>
                             <constraint firstItem="3Sd-85-hs5" firstAttribute="bottom" secondItem="ofX-ij-ZFT" secondAttribute="top" id="oFD-fw-P3P"/>
                             <constraint firstItem="3Sd-85-hs5" firstAttribute="trailing" secondItem="MJ3-Gi-Wi4" secondAttribute="trailing" id="qz3-9V-JbS"/>
@@ -144,6 +144,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomTextBottomConstraint" destination="72h-lr-3Ho" id="ZRb-OF-JuX"/>
                         <outlet property="bottomTextField" destination="oil-Qb-hgU" id="arQ-fK-KtQ"/>
                         <outlet property="imageView" destination="3Sd-85-hs5" id="c0c-4o-k1A"/>
                         <outlet property="shareButton" destination="sZV-8v-xbD" id="f7o-Qr-aWa"/>
