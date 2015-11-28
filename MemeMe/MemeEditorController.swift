@@ -33,7 +33,6 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     @IBAction func topTextEditing(sender: UITextField) {
         if(sender.text == "TOP") {
             sender.text = ""
-            return
         }
     }
     
@@ -41,7 +40,6 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         shouldSlideView = true
         if(sender.text == "BOTTOM") {
             sender.text = ""
-            return
         }
     }
     @IBAction func bottomTextEditingEnd(sender: UITextField) {
@@ -49,7 +47,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     @IBAction func cancelButtonTouch(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: {});
+        dismissViewControllerAnimated(true, completion: {})
     }
     
     @IBAction func shareButtonTouch(sender: UIBarButtonItem) {
@@ -59,20 +57,20 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
             (activity, success, items, error) in
             _ = MemeModel(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memeImage: memeImage)
         }
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        presentViewController(activityViewController, animated: true, completion: nil)
     }
     
     @IBAction func albumButtonTouch(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+            presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
     
     @IBAction func cameraButtonTouch(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+            presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
     
@@ -95,8 +93,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     // View Init
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: view.window)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: view.window)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -127,8 +125,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     
     // Image picker delegate
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            
+        dismissViewControllerAnimated(true, completion: { () -> Void in
         })
         
         imageView.image = image
