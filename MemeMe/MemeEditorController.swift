@@ -77,22 +77,17 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     func generateMemedImage() -> UIImage {
-        let defaultBackGroundColor = view.backgroundColor
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.setToolbarHidden(true, animated: false)
-        view.backgroundColor = UIColor.whiteColor()
+        let defaultBackGroundColor = imageView.backgroundColor
+        imageView.backgroundColor = UIColor.whiteColor()
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
         // do error handling here
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.setToolbarHidden(false, animated: false)
-        view.backgroundColor = defaultBackGroundColor
+
+        imageView.backgroundColor = defaultBackGroundColor
         
         return memedImage
     }
