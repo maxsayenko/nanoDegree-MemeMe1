@@ -10,12 +10,6 @@ import UIKit
 
 class MemeEditorController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var imagePicker = UIImagePickerController()
-    let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -3.0
-    ]
     var shouldSlideView: Bool = false
     
     // Constraints
@@ -90,6 +84,20 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         return memedImage
     }
     
+    func prepareTextField(textField: UITextField, defaultText: String) {
+        super.viewDidLoad()
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSStrokeWidthAttributeName : -3.0
+        ]
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.text = defaultText
+        textField.autocapitalizationType = .AllCharacters
+        textField.textAlignment = .Center
+    }
+    
     // View Init
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -108,10 +116,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
         
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = NSTextAlignment.Center
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.textAlignment = NSTextAlignment.Center
+        prepareTextField(topTextField, defaultText: "TOP")
+        prepareTextField(bottomTextField, defaultText: "BOTTOM")
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
