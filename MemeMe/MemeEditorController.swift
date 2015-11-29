@@ -147,9 +147,10 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
             // No need to slide if the view already up
             if(view.frame.origin.y == 0) {
-                view.frame.origin.y -= keyboardSize.height
-                navigationController?.navigationBar.frame.origin.y -= keyboardSize.height
-                navigationController?.toolbar.frame.origin.y -= keyboardSize.height
+                let toolBarHeight = navigationController?.toolbar.frame.height
+                view.frame.origin.y = -keyboardSize.height
+                navigationController?.navigationBar.frame.origin.y = -keyboardSize.height
+                navigationController?.toolbar.frame.origin.y = view.frame.origin.y + view.frame.height - toolBarHeight!
             }
         }
     }
@@ -159,13 +160,12 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
             return
         }
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            // No need to slide if the view already down
-            if(view.frame.origin.y != 0) {
-                view.frame.origin.y += keyboardSize.height
-                navigationController?.navigationBar.frame.origin.y += keyboardSize.height
-                navigationController?.toolbar.frame.origin.y += keyboardSize.height
-            }
+        // No need to slide if the view already down
+        if(view.frame.origin.y != 0) {
+            let toolBarHeight = navigationController?.toolbar.frame.height
+            view.frame.origin.y = 0
+            navigationController?.navigationBar.frame.origin.y = 0
+            navigationController?.toolbar.frame.origin.y = view.frame.height - toolBarHeight!
         }
     }
     
