@@ -49,7 +49,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {
             (activity, success, items, error) in
-            _ = MemeModel(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memeImage: memeImage)
+            let memeModel = MemeModel(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memeImage: memeImage)
+            MemesDataSourceModel.memes.append(memeModel)
         }
         presentViewController(activityViewController, animated: true, completion: nil)
     }

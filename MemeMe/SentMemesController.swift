@@ -20,4 +20,13 @@ class SentMemesController: UIViewController, UINavigationControllerDelegate, UII
     
     @IBAction func gridTouch(sender: UIBarButtonItem) {
     }
+    
+    override func viewDidLoad() {
+        print(MemesDataSourceModel.memes)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("viewDidAppear")
+        print(MemesDataSourceModel.memes)
+    }
 }
