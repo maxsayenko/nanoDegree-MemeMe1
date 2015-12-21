@@ -15,31 +15,29 @@ class CustomPhotoAlbum {
     
     init() {
         func fetchAssetCollectionForAlbum() -> PHAssetCollection! {
-            
+            // Getting the collection
             let fetchOptions = PHFetchOptions()
             fetchOptions.predicate = NSPredicate(format: "title = %@", CustomPhotoAlbum.albumName)
             let collection = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
             
-            print(collection.count)
-            print(collection)
-            
-            if let firstObject: AnyObject = collection.firstObject {
-                print(firstObject)
+            // Getting first item in case there are several with the same name
+            if let _: AnyObject = collection.firstObject {
                 return collection.firstObject as! PHAssetCollection
             }
 
             return nil
         }
         
+        // If collection exists we will return out, and not create another one
         if let assetCollection = fetchAssetCollectionForAlbum() {
             self.assetCollection = assetCollection
             return
         }
         
+        // Actual creation
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(CustomPhotoAlbum.albumName)
             }) { success, _ in
-                print(success)
                 if success {
                     self.assetCollection = fetchAssetCollectionForAlbum()
                 }
