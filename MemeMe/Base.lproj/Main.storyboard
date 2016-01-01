@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--Two_-->
+        <!--Sent Memes Grid View Controller-->
         <scene sceneID="ix4-6O-krq">
             <objects>
                 <viewController storyboardIdentifier="sentMemesGridView" id="8AQ-dq-RMg" customClass="SentMemesGridViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,13 +25,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Two_" image="gridIcon" selectedImage="gridIcon" id="Aqc-wn-i2R"/>
+                    <tabBarItem key="tabBarItem" title="" image="gridIcon" selectedImage="gridIcon" id="Aqc-wn-i2R"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEb-IS-7qw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1613" y="-311"/>
         </scene>
-        <!--On1-->
+        <!--Sent Memes Table View Controller-->
         <scene sceneID="90k-xw-F2x">
             <objects>
                 <viewController storyboardIdentifier="sentMemesTableView" id="tKB-2v-hHE" customClass="SentMemesTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,17 +52,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="On1" image="tableIcon" selectedImage="tableIcon" id="Owg-S9-7WH"/>
+                    <tabBarItem key="tabBarItem" title="" image="tableIcon" selectedImage="tableIcon" id="Owg-S9-7WH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXh-Hy-tCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1612" y="-939"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Sent Memes-->
         <scene sceneID="esJ-qd-dSf">
             <objects>
                 <tabBarController id="X5C-B1-tD0" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7G0-RO-7oc">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="7G0-RO-7oc">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="nfU-Qw-137"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5IR-p6-S8D">
                             <connections>
@@ -282,6 +282,6 @@
         <image name="tableIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aNd-fU-90T"/>
+        <segue reference="1rv-Dj-Kcd"/>
     </inferredMetricsTieBreakers>
 </document>
