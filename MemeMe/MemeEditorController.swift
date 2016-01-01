@@ -131,13 +131,72 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     // Image picker delegate
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        dismissViewControllerAnimated(true, completion: { () -> Void in
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
+            dismissViewControllerAnimated(true, completion: { () -> Void in
         })
+        
+        if let info = editingInfo {
+            print(info)
+        }
         
         imageView.image = image
         shareButton.enabled = true
     }
+    
+    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+////        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+////        let imageName = imageURL.path!.lastPathComponent
+////        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String
+////        let localPath = documentDirectory.stringByAppendingPathComponent(imageName)
+////        
+////        let image = info[UIImagePickerControllerOriginalImage] as UIImage
+////        let data = UIImagePNGRepresentation(image)
+////        data.writeToFile(localPath, atomically: true)
+////        
+////        let imageData = NSData(contentsOfFile: localPath)!
+////        let photoURL = NSURL(fileURLWithPath: localPath)
+////        let imageWithData = UIImage(data: imageData)!
+//        
+//        picker.dismissViewControllerAnimated(true, completion: nil)
+//        
+//    }
+    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+//        picker.dismissViewControllerAnimated(true, completion: nil)
+//    }
+    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+//
+//        let imageName = imageURL.lastPathComponent
+//        let documentDirectoryString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
+//        
+//        let documentDirectoryUrl = NSURL(fileURLWithPath: documentDirectoryString, isDirectory: true)
+//        let localPath = documentDirectoryUrl.URLByAppendingPathComponent("asset.JPG?id=1B663CC3-ECA5-4290-A7D0-74F70C3DE94D&ext=JPG")
+//        
+////        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+////        let data = UIImagePNGRepresentation(image)
+////        data.writeToFile(localPath, atomically: true)
+////
+////        let imageData = NSData(contentsOfFile: localPath)!
+////        let photoURL = NSURL(fileURLWithPath: localPath)
+////        let imageWithData = UIImage(data: imageData)!
+//        
+//        print(imageURL)
+//        print(imageURL.absoluteString)
+//        print(imageName)
+//        print(documentDirectoryString)
+//        print(documentDirectoryUrl)
+//        print(localPath.absoluteString)
+//        print("----")
+//        print(info)
+//        
+//        
+//        imageView.image = UIImage(contentsOfFile: localPath.absoluteString)
+//        
+//        picker.dismissViewControllerAnimated(true, completion: nil)
+//    }
     
     // Keyboard delegates
     func keyboardWillShow(notification: NSNotification) {
