@@ -10,7 +10,8 @@ import UIKit
 
 struct MemesDataSourceModel {
     static var memes = [MemeModel]()
-//    func AddMeme(model: MemeModel) {
+    
+//    func AddMeme(model: MemeModel) -> Void {
 //        memes.append(model)
 //    }
 }

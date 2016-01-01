@@ -32,6 +32,5 @@ class SentMemesController: UIViewController, UINavigationControllerDelegate, UII
         if(MemesDataSourceModel.memes.count > 0) {
             CustomPhotoAlbum.sharedInstance.saveImage(MemesDataSourceModel.memes[0].memeImage)
         }
-        
     }
 }

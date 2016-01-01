@@ -7,7 +7,7 @@
         <!--Two_-->
         <scene sceneID="ix4-6O-krq">
             <objects>
-                <viewController id="8AQ-dq-RMg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sentMemesGridView" id="8AQ-dq-RMg" customClass="SentMemesGridViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SsX-Ag-msQ"/>
                         <viewControllerLayoutGuide type="bottom" id="bWF-3R-JWi"/>
@@ -34,7 +34,7 @@
         <!--On1-->
         <scene sceneID="90k-xw-F2x">
             <objects>
-                <viewController id="tKB-2v-hHE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sentMemesTableView" id="tKB-2v-hHE" customClass="SentMemesTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JS8-Vy-2lT"/>
                         <viewControllerLayoutGuide type="bottom" id="Wcs-wO-8sW"/>
@@ -62,7 +62,10 @@
         <scene sceneID="esJ-qd-dSf">
             <objects>
                 <tabBarController id="X5C-B1-tD0" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="7G0-RO-7oc"/>
+                    <navigationItem key="navigationItem" id="7G0-RO-7oc">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="nfU-Qw-137"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5IR-p6-S8D"/>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7zP-fX-vvn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -240,7 +243,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3TG-4D-h97"/>
+                        <segue destination="X5C-B1-tD0" kind="relationship" relationship="rootViewController" id="BNs-V5-YMe"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tS-I4-XIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
