@@ -64,7 +64,11 @@
                 <tabBarController id="X5C-B1-tD0" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="7G0-RO-7oc">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="nfU-Qw-137"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5IR-p6-S8D"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5IR-p6-S8D">
+                            <connections>
+                                <segue destination="Gwx-t3-32N" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="1rv-Dj-Kcd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7zP-fX-vvn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -243,7 +247,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="X5C-B1-tD0" kind="relationship" relationship="rootViewController" id="BNs-V5-YMe"/>
+                        <segue destination="X5C-B1-tD0" kind="relationship" relationship="rootViewController" id="hhg-v1-HF8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tS-I4-XIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,4 +281,7 @@
         <image name="gridIcon" width="30" height="30"/>
         <image name="tableIcon" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1rv-Dj-Kcd"/>
+    </inferredMetricsTieBreakers>
 </document>
