@@ -43,14 +43,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28r-BF-6dN">
-                                <rect key="frame" x="149" y="92" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8vt-U9-9Uj">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="LsS-vL-h4H">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LsS-vL-h4H" id="qpn-0q-Q2j">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tKB-2v-hHE" id="7Nn-da-b9R"/>
+                                    <outlet property="delegate" destination="tKB-2v-hHE" id="VRO-wz-Rxq"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8vt-U9-9Uj" secondAttribute="trailing" id="7AN-S8-21e"/>
+                            <constraint firstItem="8vt-U9-9Uj" firstAttribute="leading" secondItem="fcG-KX-1qU" secondAttribute="leading" id="EeN-hy-JH9"/>
+                            <constraint firstItem="8vt-U9-9Uj" firstAttribute="top" secondItem="JS8-Vy-2lT" secondAttribute="bottom" id="HBs-zr-G0j"/>
+                            <constraint firstItem="8vt-U9-9Uj" firstAttribute="bottom" secondItem="Wcs-wO-8sW" secondAttribute="top" id="Q0g-HX-Mn8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tableIcon" selectedImage="tableIcon" id="Owg-S9-7WH"/>
                 </viewController>

@@ -8,10 +8,11 @@
 
 import UIKit
 
-class SentMemesTableViewController: UIViewController {
+class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidAppear(animated: Bool) {
         print("table did appear")
+        
     }
     
     override func viewDidLoad() {
@@ -26,4 +27,15 @@ class SentMemesTableViewController: UIViewController {
         print("table did disappear")
     }
     
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableCell")! as UITableViewCell
+        cell.textLabel?.text = "boo"
+        
+        return cell
+    }
 }
