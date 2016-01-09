@@ -32,7 +32,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         let memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
         
         // Set the name and image
-        cell.textLabel?.text = memeModel.topText
+        cell.textLabel?.text = "\(memeModel.topText) ... \(memeModel.bottomText)"
         cell.imageView?.image = memeModel.memeImage
         
         // If the cell has a detail label, we will put the evil scheme in.
