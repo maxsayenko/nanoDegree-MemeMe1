@@ -13,19 +13,10 @@ class SentMemesGridViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet var collectionView: UICollectionView!
     
     override func viewDidAppear(animated: Bool) {
-        print("grid did appear")
         collectionView.reloadData()
     }
     
-    override func viewDidLoad() {
-        // Regestering custom table cell
-//        let nib = UINib(nibName: "GridCell", bundle: nil)
-//        collectionView.registerNib(nib, forCellWithReuseIdentifier: "gridCell")
-        //collectionView!.registerClass(GridCell.self, forCellWithReuseIdentifier: "gridCell")
-    }
-    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Grid count = \(MemesDataSourceModel.memes.count)")
         return MemesDataSourceModel.memes.count
     }
     
@@ -35,10 +26,7 @@ class SentMemesGridViewController: UIViewController, UICollectionViewDataSource,
 
         let memeModel = MemesDataSourceModel.memes[indexPath.item] as MemeModel
 
-        cell.backgroundColor = UIColor.redColor()
-        cell.imageView.contentMode = .ScaleAspectFit
-        cell.imageView.image = memeModel.originalImage
-        cell.topText.text = memeModel.topText
+        cell.populate(memeModel)
         
         return cell
     }

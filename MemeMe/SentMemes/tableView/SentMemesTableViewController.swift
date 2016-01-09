@@ -13,16 +13,10 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet var tableView: UITableView!
     
     override func viewDidAppear(animated: Bool) {
-        print("table did appear")
         tableView.reloadData()
     }
     
-    override func viewDidLoad() {
-        print("table did load")
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count = \(MemesDataSourceModel.memes.count)")
         return MemesDataSourceModel.memes.count
     }
     
@@ -34,12 +28,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Set the name and image
         cell.textLabel?.text = "\(memeModel.topText) ... \(memeModel.bottomText)"
         cell.imageView?.image = memeModel.memeImage
-        
-        // If the cell has a detail label, we will put the evil scheme in.
-//        if let detailTextLabel = cell.detailTextLabel {
-//            detailTextLabel.text = "Scheme: \(villain.evilScheme)"
-//        }
-        
+
         return cell
     }
 }
