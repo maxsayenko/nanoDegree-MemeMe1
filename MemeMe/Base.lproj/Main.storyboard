@@ -16,14 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Two" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3d-if-5V6">
-                                <rect key="frame" x="149" y="84" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wOL-oi-tRZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2t9-NG-DnA">
+                                    <size key="itemSize" width="123" height="107"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="9aG-PC-r8F">
+                                        <rect key="frame" x="0.0" y="64" width="125" height="125"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="125" height="125"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="8AQ-dq-RMg" id="uNP-bf-xdp"/>
+                                    <outlet property="delegate" destination="8AQ-dq-RMg" id="XHe-df-Hbv"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wOL-oi-tRZ" firstAttribute="leading" secondItem="ZKM-3Q-i98" secondAttribute="leading" id="Em9-OP-RVN"/>
+                            <constraint firstItem="wOL-oi-tRZ" firstAttribute="top" secondItem="ZKM-3Q-i98" secondAttribute="top" id="WsD-MH-KmV"/>
+                            <constraint firstItem="wOL-oi-tRZ" firstAttribute="bottom" secondItem="bWF-3R-JWi" secondAttribute="top" id="cNA-J8-d6h"/>
+                            <constraint firstAttribute="trailing" secondItem="wOL-oi-tRZ" secondAttribute="trailing" id="qpq-f7-kWA"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="gridIcon" selectedImage="gridIcon" id="Aqc-wn-i2R"/>
                 </viewController>
@@ -51,14 +77,14 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LsS-vL-h4H" id="qpn-0q-Q2j">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="tKB-2v-hHE" id="7Nn-da-b9R"/>
-                                    <outlet property="delegate" destination="tKB-2v-hHE" id="VRO-wz-Rxq"/>
+                                    <outlet property="dataSource" destination="tKB-2v-hHE" id="mve-0O-Lhw"/>
+                                    <outlet property="delegate" destination="tKB-2v-hHE" id="fqM-nJ-wyh"/>
                                 </connections>
                             </tableView>
                         </subviews>

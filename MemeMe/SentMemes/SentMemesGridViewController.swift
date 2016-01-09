@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SentMemesGridViewController: UIViewController {
+class SentMemesGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     override func viewDidAppear(animated: Bool) {
         print("grid did appear")
@@ -24,5 +24,18 @@ class SentMemesGridViewController: UIViewController {
     
     override func viewDidDisappear(animated: Bool) {
         print("grid did disappear")
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as UICollectionViewCell
+
+        cell.backgroundColor = UIColor.redColor()
+        
+        return cell
     }
 }
