@@ -97,6 +97,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tableIcon" selectedImage="tableIcon" id="Owg-S9-7WH"/>
+                    <connections>
+                        <outlet property="tableView" destination="8vt-U9-9Uj" id="AHg-kC-e2G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXh-Hy-tCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
