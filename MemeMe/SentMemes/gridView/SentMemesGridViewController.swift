@@ -33,18 +33,12 @@ class SentMemesGridViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridCell
 
-        print(indexPath)
-        print(indexPath.row)
-        print(indexPath.item)
-        
         let memeModel = MemesDataSourceModel.memes[indexPath.item] as MemeModel
 
-        print(memeModel)
-        print(memeModel.memeImage)
-        print(cell)
-        
         cell.backgroundColor = UIColor.redColor()
-        cell.imageView.image = memeModel.memeImage
+        cell.imageView.contentMode = .ScaleAspectFit
+        cell.imageView.image = memeModel.originalImage
+        cell.topText.text = memeModel.topText
         
         return cell
     }
