@@ -19,6 +19,7 @@
 		E2958FE21BEDE22E00B7EBE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2958FE11BEDE22E00B7EBE0 /* Assets.xcassets */; };
 		E2958FE51BEDE22E00B7EBE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2958FE31BEDE22E00B7EBE0 /* LaunchScreen.storyboard */; };
 		E2CDD5121C40F0D8001A103F /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CDD5111C40F0D8001A103F /* GridCell.swift */; };
+		E2CDD5141C410A4C001A103F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CDD5131C410A4C001A103F /* TableViewCell.swift */; };
 		E2FA4C381BEDE8DA009C1105 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = E2FA4C371BEDE8DA009C1105 /* Images */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		E2958FE41BEDE22E00B7EBE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2958FE61BEDE22E00B7EBE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2CDD5111C40F0D8001A103F /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
+		E2CDD5131C410A4C001A103F /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = MemeMe/SentMemes/tableView/TableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		E2FA4C371BEDE8DA009C1105 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				E22231B61C3636DE00535E38 /* SentMemesTableViewController.swift */,
+				E2CDD5131C410A4C001A103F /* TableViewCell.swift */,
 			);
 			name = tableView;
 			path = ../tableView;
@@ -197,6 +200,7 @@
 				E22231B31C24BB9000535E38 /* MemesDataSourceModel.swift in Sources */,
 				E232F4361BFEBC0B00E659C4 /* MemeEditorController.swift in Sources */,
 				E2CDD5121C40F0D8001A103F /* GridCell.swift in Sources */,
+				E2CDD5141C410A4C001A103F /* TableViewCell.swift in Sources */,
 				E22231B51C24BFDB00535E38 /* CustomPhotoAlbum.swift in Sources */,
 				E2958FDB1BEDE22D00B7EBE0 /* AppDelegate.swift in Sources */,
 				E22231B91C36373400535E38 /* SentMemesGridViewController.swift in Sources */,
