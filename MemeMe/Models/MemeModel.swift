@@ -12,5 +12,7 @@ struct MemeModel {
     var topText: String = ""
     var bottomText: String = ""
     var originalImage: UIImage!
+    var originalImageLocalIdentifier: String = ""
     var memeImage: UIImage!
+    var memeImageLocalIdentifier: String = ""
 }
