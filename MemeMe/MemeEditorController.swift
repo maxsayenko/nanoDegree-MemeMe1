@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Photos
+
 
 class MemeEditorController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var imagePicker = UIImagePickerController()
@@ -79,7 +81,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
+        
         imageView.backgroundColor = defaultBackGroundColor
         
         return memedImage
@@ -131,72 +133,155 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     // Image picker delegate
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
-            dismissViewControllerAnimated(true, completion: { () -> Void in
-        })
+    //    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
+    //
+    //        dismissViewControllerAnimated(true, completion: { () -> Void in
+    //        })
+    //
+    //        if let info = editingInfo {
+    //            print(info)
+    //        }
+    //
+    //        imageView.image = image
+    //        shareButton.enabled = true
+    //    }
+    
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let manager = PHImageManager.defaultManager()
         
-        if let info = editingInfo {
-            print(info)
+        print(info)
+        
+        let url = info[UIImagePickerControllerReferenceURL] as! NSURL
+        
+        print(url)
+        
+        
+        let asset = PHAsset.fetchAssetsWithALAssetURLs([url], options: nil).lastObject as! PHAsset
+        
+        print(asset)
+        
+        let localId = asset.localIdentifier
+        
+        print(localId)
+        
+        print("========== 1B663CC3-ECA5-4290-A7D0-74F70C3DE94D/L0/001")
+        
+        let fetchResults = PHAsset.fetchAssetsWithLocalIdentifiers(["4BD8AB4D-884B-48DB-B4FF-8D4A4BB6C3E0/L0/001"], options: nil)
+        
+        print(fetchResults)
+        
+        if (fetchResults.count > 0) {
+            if let imageAsset = fetchResults.objectAtIndex(0) as? PHAsset {
+                let requestOptions = PHImageRequestOptions()
+                requestOptions.deliveryMode = .HighQualityFormat
+                manager.requestImageForAsset(imageAsset, targetSize: PHImageManagerMaximumSize, contentMode: .AspectFill, options: requestOptions, resultHandler: { (image, info) -> Void in
+                    print("YAY")
+                    print(image)
+                    print(info)
+                    self.imageView.image = image
+                })
+            } else {
+                print("fetchResults.objectAtIndex(0) failed")
+            }
+        } else {
+            print("no items in fetchResult")
         }
         
-        imageView.image = image
-        shareButton.enabled = true
+        PHImageManager.defaultManager().requestImageDataForAsset(asset, options: PHImageRequestOptions(), resultHandler:
+            {
+                (imagedata, dataUTI, orientation, info) in
+                
+                if info!.keys.contains(NSString(string: "PHImageFileURLKey"))
+                {
+                    let path = info![NSString(string: "PHImageFileURLKey")] as! NSURL
+                    print(path)
+                    print("path = \(path.path!)")
+                    
+                    let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+                    
+                    print(documentsURL)
+                    
+                    let fileURL = documentsURL.URLByAppendingPathComponent(path.path!)
+                    print(fileURL)
+                    
+                    print("----------")
+                    //NSData *imageData = [NSData dataWithContentsOfURL:privateUrl];
+                    
+                    let data = NSData(contentsOfFile: "file:///var/mobile/Media/DCIM/101APPLE/IMG_1711.JPG")
+                    print(data)
+                    
+                    let data2 = NSData(contentsOfURL: NSURL(fileURLWithPath: "file:///var/mobile/Media/DCIM/101APPLE/IMG_1711.JPG"))
+                    print(data2)
+                    
+                    let img = UIImage(contentsOfFile: "file:///var/mobile/Media/DCIM/101APPLE/IMG_1711.JPG")
+                    
+                    print(img)
+                }
+        })
+        
+        print("done")
+        
+        dismissViewControllerAnimated(true, completion: { () -> Void in
+        })
     }
     
     
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-////        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-////        let imageName = imageURL.path!.lastPathComponent
-////        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String
-////        let localPath = documentDirectory.stringByAppendingPathComponent(imageName)
-////        
-////        let image = info[UIImagePickerControllerOriginalImage] as UIImage
-////        let data = UIImagePNGRepresentation(image)
-////        data.writeToFile(localPath, atomically: true)
-////        
-////        let imageData = NSData(contentsOfFile: localPath)!
-////        let photoURL = NSURL(fileURLWithPath: localPath)
-////        let imageWithData = UIImage(data: imageData)!
-//        
-//        picker.dismissViewControllerAnimated(true, completion: nil)
-//        
-//    }
     
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
-//        picker.dismissViewControllerAnimated(true, completion: nil)
-//    }
     
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-//        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-//
-//        let imageName = imageURL.lastPathComponent
-//        let documentDirectoryString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
-//        
-//        let documentDirectoryUrl = NSURL(fileURLWithPath: documentDirectoryString, isDirectory: true)
-//        let localPath = documentDirectoryUrl.URLByAppendingPathComponent("asset.JPG?id=1B663CC3-ECA5-4290-A7D0-74F70C3DE94D&ext=JPG")
-//        
-////        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-////        let data = UIImagePNGRepresentation(image)
-////        data.writeToFile(localPath, atomically: true)
-////
-////        let imageData = NSData(contentsOfFile: localPath)!
-////        let photoURL = NSURL(fileURLWithPath: localPath)
-////        let imageWithData = UIImage(data: imageData)!
-//        
-//        print(imageURL)
-//        print(imageURL.absoluteString)
-//        print(imageName)
-//        print(documentDirectoryString)
-//        print(documentDirectoryUrl)
-//        print(localPath.absoluteString)
-//        print("----")
-//        print(info)
-//        
-//        
-//        imageView.image = UIImage(contentsOfFile: localPath.absoluteString)
-//        
-//        picker.dismissViewControllerAnimated(true, completion: nil)
-//    }
+    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    ////        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+    ////        let imageName = imageURL.path!.lastPathComponent
+    ////        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String
+    ////        let localPath = documentDirectory.stringByAppendingPathComponent(imageName)
+    ////
+    ////        let image = info[UIImagePickerControllerOriginalImage] as UIImage
+    ////        let data = UIImagePNGRepresentation(image)
+    ////        data.writeToFile(localPath, atomically: true)
+    ////
+    ////        let imageData = NSData(contentsOfFile: localPath)!
+    ////        let photoURL = NSURL(fileURLWithPath: localPath)
+    ////        let imageWithData = UIImage(data: imageData)!
+    //
+    //        picker.dismissViewControllerAnimated(true, completion: nil)
+    //
+    //    }
+    
+    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
+    //        picker.dismissViewControllerAnimated(true, completion: nil)
+    //    }
+    
+    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    //        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
+    //
+    //        let imageName = imageURL.lastPathComponent
+    //        let documentDirectoryString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
+    //
+    //        let documentDirectoryUrl = NSURL(fileURLWithPath: documentDirectoryString, isDirectory: true)
+    //        let localPath = documentDirectoryUrl.URLByAppendingPathComponent("asset.JPG?id=1B663CC3-ECA5-4290-A7D0-74F70C3DE94D&ext=JPG")
+    //
+    ////        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+    ////        let data = UIImagePNGRepresentation(image)
+    ////        data.writeToFile(localPath, atomically: true)
+    ////
+    ////        let imageData = NSData(contentsOfFile: localPath)!
+    ////        let photoURL = NSURL(fileURLWithPath: localPath)
+    ////        let imageWithData = UIImage(data: imageData)!
+    //
+    //        print(imageURL)
+    //        print(imageURL.absoluteString)
+    //        print(imageName)
+    //        print(documentDirectoryString)
+    //        print(documentDirectoryUrl)
+    //        print(localPath.absoluteString)
+    //        print("----")
+    //        print(info)
+    //
+    //
+    //        imageView.image = UIImage(contentsOfFile: localPath.absoluteString)
+    //
+    //        picker.dismissViewControllerAnimated(true, completion: nil)
+    //    }
     
     // Keyboard delegates
     func keyboardWillShow(notification: NSNotification) {
