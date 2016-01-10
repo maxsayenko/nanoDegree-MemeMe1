@@ -44,8 +44,8 @@ class CustomPhotoAlbum {
         }
     }
     
-    func saveImage(image: UIImage) {
-        if assetCollection == nil {
+    func saveImage(image: UIImage, completionHandler: (localIdentifier: String) -> Void) -> Void {
+        if (assetCollection == nil) {
             // If there was an error upstream, skip the save.
             return
         }
@@ -53,13 +53,19 @@ class CustomPhotoAlbum {
         PHPhotoLibrary.sharedPhotoLibrary().performChanges(
             {
                 let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
-                
+
                 // Need to cast [assetPlaceholder] explicitly to NSArray
                 let assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset
+
+                print("memeLocalId = \(assetPlaceholder?.localIdentifier)")
+                
                 let enumeration: NSArray = [assetPlaceholder!]
                 
                 let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection)
+                
                 albumChangeRequest!.addAssets(enumeration)
+                
+                completionHandler(localIdentifier: (assetPlaceholder?.localIdentifier)!)
             }, completionHandler: nil)
     }
 }

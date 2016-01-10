@@ -55,8 +55,11 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {
             (activity, success, items, error) in
-            let memeModel = MemeModel(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, originalImageLocalIdentifier: self.originalImageLocalIdentifier, memeImage: memeImage, memeImageLocalIdentifier: "")
-            MemesDataSourceModel.memes.append(memeModel)
+
+            CustomPhotoAlbum.sharedInstance.saveImage(memeImage) { (localIdentifier) -> Void in
+                let memeModel = MemeModel(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, originalImageLocalIdentifier: self.originalImageLocalIdentifier, memeImage: memeImage, memeImageLocalIdentifier: localIdentifier)
+                MemesDataSourceModel.memes.append(memeModel)
+            }
         }
         presentViewController(activityViewController, animated: true, completion: nil)
     }

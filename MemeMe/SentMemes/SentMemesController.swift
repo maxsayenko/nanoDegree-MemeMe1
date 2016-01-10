@@ -28,9 +28,9 @@ class SentMemesController: UIViewController, UINavigationControllerDelegate, UII
     
     override func viewDidAppear(animated: Bool) {
         print("viewDidAppear")
-        print(MemesDataSourceModel.memes)
-        if(MemesDataSourceModel.memes.count > 0) {
-            CustomPhotoAlbum.sharedInstance.saveImage(MemesDataSourceModel.memes[0].memeImage)
-        }
+//        print(MemesDataSourceModel.memes)
+//        if(MemesDataSourceModel.memes.count > 0) {
+//            CustomPhotoAlbum.sharedInstance.saveImage(MemesDataSourceModel.memes[0].memeImage)
+//        }
     }
 }

@@ -12,6 +12,11 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBOutlet var tableView: UITableView!
     
+    override func viewDidLoad() {
+        print("load")
+        CustomPhotoAlbum()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         print("reload")
         tableView.reloadData()
