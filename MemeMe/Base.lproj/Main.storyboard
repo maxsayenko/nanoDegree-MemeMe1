@@ -207,61 +207,6 @@
             </objects>
             <point key="canvasLocation" x="1070" y="-626"/>
         </scene>
-        <!--Sent Memes-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="sentMemesView" id="BYZ-38-t0r" customClass="SentMemesController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyH-2U-lQh">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jbg-fK-h9O"/>
-                                    <barButtonItem image="tableIcon" id="X80-WL-4zv">
-                                        <connections>
-                                            <action selector="tableTouch:" destination="BYZ-38-t0r" id="Veq-9D-Ikv"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GbK-ZS-Ke7"/>
-                                    <barButtonItem image="gridIcon" id="T0O-eD-dYo">
-                                        <connections>
-                                            <action selector="gridTouch:" destination="BYZ-38-t0r" id="Kbu-WX-Zul"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Hfi-Td-xOq"/>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="LyH-2U-lQh" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="0jc-Ns-tRn"/>
-                            <constraint firstAttribute="trailing" secondItem="LyH-2U-lQh" secondAttribute="trailing" id="QQk-Wx-S5G"/>
-                            <constraint firstItem="LyH-2U-lQh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uLb-B0-Kic"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="esc-Sw-ZD8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="92W-mY-536">
-                            <connections>
-                                <action selector="editTouch:" destination="BYZ-38-t0r" id="9jR-Ze-lXy"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zuk-Kr-Nid">
-                            <connections>
-                                <segue destination="Gwx-t3-32N" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="aNd-fU-90T"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="404" y="334"/>
-        </scene>
         <!--Meme Editor-->
         <scene sceneID="a8H-Sy-uRx">
             <objects>
@@ -404,7 +349,4 @@
         <image name="gridIcon" width="30" height="30"/>
         <image name="tableIcon" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="1rv-Dj-Kcd"/>
-    </inferredMetricsTieBreakers>
 </document>
