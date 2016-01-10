@@ -15,9 +15,12 @@ class ImageService {
     }
     
     static func getImageLocalIdentifier(info: [String: AnyObject]) -> String {
-        let url = info[UIImagePickerControllerReferenceURL] as! NSURL
-        let asset = PHAsset.fetchAssetsWithALAssetURLs([url], options: nil).lastObject as! PHAsset
-        return asset.localIdentifier
+        if(info[UIImagePickerControllerReferenceURL] != nil) {
+            let url = info[UIImagePickerControllerReferenceURL] as! NSURL
+            let asset = PHAsset.fetchAssetsWithALAssetURLs([url], options: nil).lastObject as! PHAsset
+            return asset.localIdentifier
+        }
+        return ""
     }
     
     static func getImageFromLocalIdentifier(localIdentifier: String, completionHandler: (image: UIImage?, error: NSError?) -> Void ) -> Void {

@@ -155,16 +155,26 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        print("info")
+        print(info)
         let localId = ImageService.getImageLocalIdentifier(info)
         originalImageLocalIdentifier = localId
-        
-        ImageService.getImageFromLocalIdentifier(localId) { (image, error) -> Void in
-            if (error == nil) {
-                self.imageView.image = image
-                self.shareButton.enabled = true
-                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                })
+        print("LocalId = \(localId)")
+        if(localId != "") {
+            ImageService.getImageFromLocalIdentifier(localId) { (image, error) -> Void in
+                if (error == nil) {
+                    self.imageView.image = image
+                    self.shareButton.enabled = true
+                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                    })
+                }
             }
+        } else {
+            print("Didn't get a LocalId")
+            imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            shareButton.enabled = true
+            dismissViewControllerAnimated(true, completion: { () -> Void in
+            })
         }
     }
     
