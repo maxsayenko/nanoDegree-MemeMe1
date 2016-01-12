@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		E22231B21C24BB9000535E38 /* MemesDataSourceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemesDataSourceModel.swift; sourceTree = "<group>"; };
 		E22231B41C24BFDB00535E38 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
-		E22231B61C3636DE00535E38 /* SentMemesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentMemesTableViewController.swift; path = ../SentMemes/tableView/SentMemesTableViewController.swift; sourceTree = "<group>"; };
+		E22231B61C3636DE00535E38 /* SentMemesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemesTableViewController.swift; sourceTree = "<group>"; };
 		E22231B81C36373400535E38 /* SentMemesGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemesGridViewController.swift; sourceTree = "<group>"; };
 		E232F4351BFEBC0B00E659C4 /* MemeEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeEditorController.swift; sourceTree = "<group>"; };
 		E267424F1C0819FD00E3EF70 /* MemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeModel.swift; sourceTree = "<group>"; };
@@ -114,8 +114,7 @@
 				E22231B61C3636DE00535E38 /* SentMemesTableViewController.swift */,
 				E2CDD5131C410A4C001A103F /* TableViewCell.swift */,
 			);
-			name = tableView;
-			path = ../tableView;
+			path = tableView;
 			sourceTree = "<group>";
 		};
 		E2CDD50E1C40EF81001A103F /* gridView */ = {
