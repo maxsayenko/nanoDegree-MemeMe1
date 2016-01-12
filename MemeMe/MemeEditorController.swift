@@ -155,11 +155,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        print("info")
-        print(info)
         let localId = ImageService.getImageLocalIdentifier(info)
         originalImageLocalIdentifier = localId
-        print("LocalId = \(localId)")
         if(localId != "") {
             ImageService.getImageFromLocalIdentifier(localId) { (image, error) -> Void in
                 if (error == nil) {
