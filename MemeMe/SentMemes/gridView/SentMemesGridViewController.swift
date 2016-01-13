@@ -27,13 +27,12 @@ class SentMemesGridViewController: UIViewController, UICollectionViewDataSource,
         let memeModel = MemesDataSourceModel.GetMemes()[indexPath.item] as MemeModel
 
         cell.populate(memeModel)
-        // TODO: put localId check here
+
         if(memeModel.memeImageLocalIdentifier != "") {
             ImageService.getImageFromLocalIdentifier(memeModel.memeImageLocalIdentifier, completionHandler: { (image, error) -> Void in
                 dispatch_async(dispatch_get_main_queue(), {
                     if let cellToUpdate = collectionView.cellForItemAtIndexPath(indexPath) as! GridCell? {
                         cellToUpdate.imageView.image = image
-                        //cellToUpdate.imageView.image = image
                     }
                 })
             })
