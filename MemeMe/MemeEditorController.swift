@@ -57,8 +57,17 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
             (activity, success, items, error) in
 
             CustomPhotoAlbum.sharedInstance.saveImage(memeImage) { (localIdentifier) -> Void in
-                let memeModel = MemeModel(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, originalImageLocalIdentifier: self.originalImageLocalIdentifier, memeImage: memeImage, memeImageLocalIdentifier: localIdentifier)
-                MemesDataSourceModel.memes.append(memeModel)
+                let memeModel2 = MemeModel()
+                memeModel2.topText = self.topTextField.text!
+                memeModel2.bottomText = self.bottomTextField.text!
+                memeModel2.originalImage = self.imageView.image!
+                memeModel2.originalImageLocalIdentifier = self.originalImageLocalIdentifier
+                memeModel2.memeImage = memeImage
+                memeModel2.memeImageLocalIdentifier = localIdentifier
+                
+//                let memeModel = MemeModel(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, originalImageLocalIdentifier: self.originalImageLocalIdentifier, memeImage: memeImage, memeImageLocalIdentifier: localIdentifier)
+                //MemesDataSourceModel.memes.append(memeModel)
+                MemesDataSourceModel.AddMeme(memeModel2)
             }
         }
         presentViewController(activityViewController, animated: true, completion: nil)

@@ -17,14 +17,14 @@ class SentMemesGridViewController: UIViewController, UICollectionViewDataSource,
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return MemesDataSourceModel.memes.count
+        return MemesDataSourceModel.GetMemes().count
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridCell
 
-        let memeModel = MemesDataSourceModel.memes[indexPath.item] as MemeModel
+        let memeModel = MemesDataSourceModel.GetMemes()[indexPath.item] as MemeModel
 
         cell.populate(memeModel)
         

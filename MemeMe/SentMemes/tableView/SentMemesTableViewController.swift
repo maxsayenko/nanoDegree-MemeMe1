@@ -23,13 +23,15 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MemesDataSourceModel.memes.count
+        return MemesDataSourceModel.GetMemes().count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! TableViewCell
 
-        let memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
+        //let memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
+        let memeModel = MemesDataSourceModel.GetMemes()[indexPath.row] as MemeModel
+        
         
         // Set the name and image
 //        cell.textLabel?.text = "\(memeModel.topText) ... \(memeModel.bottomText)"
@@ -38,7 +40,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         cell.memeImageView.contentMode = .ScaleAspectFit
         // cell.memeImageView.image = memeModel.memeImage
 
-        
+        // TODO: put localId check here
         cell.memeImageView.image = UIImage()
         ImageService.getImageFromLocalIdentifier(memeModel.memeImageLocalIdentifier, completionHandler: { (image, error) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
