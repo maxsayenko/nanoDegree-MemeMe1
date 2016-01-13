@@ -16,13 +16,12 @@ class GridCell: UICollectionViewCell {
     
     func populate(model: MemeModel) {
         imageView.contentMode = .ScaleAspectFit
-        imageView.image = model.originalImage
+        imageView.image = UIImage()
         topText.attributedText = getAttributedText(model.topText)
-        bottomText.attributedText = getAttributedText(model.bottomText)
+        bottomText.attributedText = getAttributedText(model.bottomText)        
     }
     
     private func getAttributedText(text: String) -> NSAttributedString {
-        
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),

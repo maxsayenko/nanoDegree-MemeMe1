@@ -35,14 +35,16 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
 
         // TODO: put localId check here
         cell.memeImageView.image = UIImage()
-        ImageService.getImageFromLocalIdentifier(memeModel.memeImageLocalIdentifier, completionHandler: { (image, error) -> Void in
-            dispatch_async(dispatch_get_main_queue(), {
-                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                    cellToUpdate.imageView?.image = image
-                }
+        if(memeModel.memeImageLocalIdentifier != "") {
+            ImageService.getImageFromLocalIdentifier(memeModel.memeImageLocalIdentifier, completionHandler: { (image, error) -> Void in
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as! TableViewCell? {
+                        cellToUpdate.memeImageView.image = image
+                    }
+                })
             })
-        })
-        
+        }
+
         cell.descriptionLabel.text = "\(memeModel.topText) ... \(memeModel.bottomText)"
 
         return cell
