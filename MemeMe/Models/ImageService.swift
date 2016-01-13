@@ -15,6 +15,7 @@ class ImageService {
     }
     
     static func getImageLocalIdentifier(info: [String: AnyObject]) -> String {
+        // TODO: Fix a bug for My Photo Stream album
         if(info[UIImagePickerControllerReferenceURL] != nil) {
             let url = info[UIImagePickerControllerReferenceURL] as! NSURL
             let asset = PHAsset.fetchAssetsWithALAssetURLs([url], options: nil).lastObject as! PHAsset
