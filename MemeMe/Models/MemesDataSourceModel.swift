@@ -18,20 +18,17 @@ struct MemesDataSourceModel {
             let memesArray = NSKeyedUnarchiver.unarchiveObjectWithData(memesData) as? [MemeModel]
             
             if let memesArray = memesArray {
-                print("memesArray = \(memesArray.count)")
                 memes = memesArray
                 return memesArray
             }
         }
-        
-        print("RETURN = \(memes.count)")
+
         return memes
     }
     
     static func AddMeme(model: MemeModel) -> Void {
         memes.append(model)
-        //let memesArray: AnyObject = memes as! AnyObject
-        
+
         let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
         NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
         NSUserDefaults.standardUserDefaults().synchronize()

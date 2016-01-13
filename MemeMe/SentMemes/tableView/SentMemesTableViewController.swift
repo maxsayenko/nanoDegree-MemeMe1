@@ -29,16 +29,9 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! TableViewCell
 
-        //let memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
         let memeModel = MemesDataSourceModel.GetMemes()[indexPath.row] as MemeModel
-        
-        
-        // Set the name and image
-//        cell.textLabel?.text = "\(memeModel.topText) ... \(memeModel.bottomText)"
-//        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        cell.imageView?.image = memeModel.memeImage
+
         cell.memeImageView.contentMode = .ScaleAspectFit
-        // cell.memeImageView.image = memeModel.memeImage
 
         // TODO: put localId check here
         cell.memeImageView.image = UIImage()
