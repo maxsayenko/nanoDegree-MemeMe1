@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEb-IS-7qw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="-311"/>
+            <point key="canvasLocation" x="1613" y="-310.99999999999994"/>
         </scene>
         <!--Sent Memes Table View Controller-->
         <scene sceneID="90k-xw-F2x">
@@ -133,22 +133,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37G-pH-5hL">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="37G-pH-5hL">
                                                     <rect key="frame" x="8" y="0.0" width="110" height="110"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="RyE-TR-qLM"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGl-rR-jRa">
-                                                    <rect key="frame" x="139" y="38" width="173" height="34"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGl-rR-jRa">
+                                                    <rect key="frame" x="126" y="38" width="173" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="37G-pH-5hL" firstAttribute="centerY" secondItem="yGl-rR-jRa" secondAttribute="centerY" id="FHy-Z9-GS7"/>
+                                                <constraint firstItem="yGl-rR-jRa" firstAttribute="leading" secondItem="37G-pH-5hL" secondAttribute="trailing" constant="8" id="fCm-FY-v07"/>
+                                                <constraint firstItem="37G-pH-5hL" firstAttribute="leading" secondItem="qpn-0q-Q2j" secondAttribute="leadingMargin" id="n5V-gB-OUq"/>
+                                                <constraint firstItem="37G-pH-5hL" firstAttribute="top" secondItem="qpn-0q-Q2j" secondAttribute="top" id="tgZ-dK-9dK"/>
+                                                <constraint firstAttribute="bottom" secondItem="37G-pH-5hL" secondAttribute="bottom" id="x4K-pn-jxB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="yGl-rR-jRa" id="N9S-nh-utg"/>
-                                            <outlet property="imageView" destination="37G-pH-5hL" id="bZl-CA-fcZ"/>
                                             <outlet property="memeImageView" destination="37G-pH-5hL" id="kwg-xJ-E3H"/>
-                                            <outlet property="textLabel" destination="yGl-rR-jRa" id="RPh-et-CgH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -173,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXh-Hy-tCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1612" y="-939"/>
+            <point key="canvasLocation" x="1612" y="-938.99999999999989"/>
         </scene>
         <!--Sent Memes-->
         <scene sceneID="esJ-qd-dSf">
@@ -199,7 +207,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFo-el-d3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="-626"/>
+            <point key="canvasLocation" x="1070" y="-625.99999999999989"/>
         </scene>
         <!--Meme Editor-->
         <scene sceneID="a8H-Sy-uRx">
@@ -296,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcL-IY-Zph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="370"/>
+            <point key="canvasLocation" x="1613" y="369.99999999999994"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P7W-hK-05f">
@@ -314,7 +322,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tS-I4-XIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="-626"/>
+            <point key="canvasLocation" x="581" y="-625.99999999999989"/>
         </scene>
         <!--MemeEditor Navigation Controller-->
         <scene sceneID="G5m-Zk-JGV">
@@ -336,7 +344,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2j-gn-IWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="370"/>
+            <point key="canvasLocation" x="1070" y="369.99999999999994"/>
         </scene>
     </scenes>
     <resources>
