@@ -39,7 +39,7 @@ class ImageService {
                     completionHandler(image: image, error: nil)
                 })
             } else {
-                print("fetchResults.objectAtIndex(0) failed")
+                print("ImageService - getImageFromLocalIdentifier: fetchResults.objectAtIndex(0) failed")
                 let userInfo: [NSObject : AnyObject] =
                 [
                     NSLocalizedDescriptionKey :  NSLocalizedString("ImageFailed", value: "fetchResults.objectAtIndex(0) failed", comment: ""),
@@ -48,7 +48,7 @@ class ImageService {
                 completionHandler(image: nil, error: NSError(domain: "ImageService", code: 500, userInfo: userInfo))
             }
         } else {
-            print("no items in fetchResult")
+            print("ImageService - getImageFromLocalIdentifier: no items in fetchResult")
             let userInfo: [NSObject : AnyObject] =
             [
                 NSLocalizedDescriptionKey :  NSLocalizedString("ImageFailed", value: "There are no items in the result", comment: ""),
