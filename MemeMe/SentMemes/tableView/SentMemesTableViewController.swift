@@ -63,7 +63,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "detailViewSegue") {
-            let memeModel = MemesDataSourceModel.memes[self.tableView.indexPathForSelectedRow!.row] as MemeModel
+            let memeModel = MemesDataSourceModel.memes[tableView.indexPathForSelectedRow!.row] as MemeModel
 
             let detailViewController = segue.destinationViewController as! DetailViewController
             detailViewController.memeModel = memeModel

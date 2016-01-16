@@ -83,6 +83,7 @@
                                             <outlet property="bottomText" destination="Sbh-A1-YEs" id="TKC-Wu-kdA"/>
                                             <outlet property="imageView" destination="hIu-wg-xlh" id="tTd-Fr-M9R"/>
                                             <outlet property="topText" destination="oK1-In-YgI" id="3tn-GI-dMs"/>
+                                            <segue destination="uOH-Re-2rz" kind="push" identifier="detailViewSegue" id="yIR-qW-E34"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -402,4 +403,7 @@
         <image name="gridIcon" width="30" height="30"/>
         <image name="tableIcon" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Y2A-wM-h5q"/>
+    </inferredMetricsTieBreakers>
 </document>
