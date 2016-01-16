@@ -11,7 +11,11 @@ import UIKit
 class DetailViewController: UIViewController {
     var memeModel: MemeModel?
 
+    @IBOutlet var memeImage: UIImageView!
+    
     override func viewDidAppear(animated: Bool) {
-        print(memeModel)
+        if let image = memeModel?.memeImage {
+            memeImage.image = image
+        }
     }
 }

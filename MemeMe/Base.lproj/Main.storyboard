@@ -212,9 +212,23 @@
                     <view key="view" contentMode="scaleToFill" id="vRX-4k-xOb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfO-eg-Cbh">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TfO-eg-Cbh" firstAttribute="bottom" secondItem="4Do-vN-cpx" secondAttribute="top" id="7aS-nj-UxJ"/>
+                            <constraint firstAttribute="trailing" secondItem="TfO-eg-Cbh" secondAttribute="trailing" id="9qR-4c-mh8"/>
+                            <constraint firstItem="TfO-eg-Cbh" firstAttribute="top" secondItem="8Ct-vl-s2y" secondAttribute="bottom" id="RjI-td-u5k"/>
+                            <constraint firstItem="TfO-eg-Cbh" firstAttribute="leading" secondItem="vRX-4k-xOb" secondAttribute="leading" id="fcN-wC-Zit"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aJ3-Z0-VJ5"/>
+                    <connections>
+                        <outlet property="memeImage" destination="TfO-eg-Cbh" id="zEy-Io-tze"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akg-vH-bPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
