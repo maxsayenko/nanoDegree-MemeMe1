@@ -13,7 +13,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
-        print("load")
+        // Don't know how to silent this warning. And why it's there.
         CustomPhotoAlbum()
     }
     
@@ -29,10 +29,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! TableViewCell
-
         let memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
-        
-        print("\(memeModel.memeImageLocalIdentifier) - \(memeModel.memeImage)")
 
         cell.memeImageView.contentMode = .ScaleAspectFit
         
@@ -47,7 +44,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
                         if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as! TableViewCell? {
                             cellToUpdate.memeImageView.image = image
                             memeModel.memeImage = image
-                            print(memeModel.memeImageLocalIdentifier)
                         }
                     })
                 }
@@ -55,7 +51,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         }
 
         cell.descriptionLabel.text = "\(memeModel.topText) ... \(memeModel.bottomText)"
-
         return cell
     }
     

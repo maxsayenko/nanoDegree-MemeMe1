@@ -28,13 +28,17 @@ class SentMemesGridViewController: UIViewController, UICollectionViewDataSource,
 
         cell.populate(memeModel)
 
-        if(memeModel.memeImageLocalIdentifier != "") {
+        // Data retrieval and caching
+        if(memeModel.memeImage == nil && memeModel.memeImageLocalIdentifier != "") {
             ImageService.getImageFromLocalIdentifier(memeModel.memeImageLocalIdentifier, completionHandler: { (image, error) -> Void in
-                dispatch_async(dispatch_get_main_queue(), {
-                    if let cellToUpdate = collectionView.cellForItemAtIndexPath(indexPath) as! GridCell? {
-                        cellToUpdate.imageView.image = image
-                    }
-                })
+                if(error == nil) {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if let cellToUpdate = collectionView.cellForItemAtIndexPath(indexPath) as! GridCell? {
+                            cellToUpdate.imageView.image = image
+                            memeModel.memeImage = image
+                        }
+                    })
+                }
             })
         }
 

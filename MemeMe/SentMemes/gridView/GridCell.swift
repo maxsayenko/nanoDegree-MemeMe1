@@ -16,7 +16,7 @@ class GridCell: UICollectionViewCell {
     
     func populate(model: MemeModel) {
         imageView.contentMode = .ScaleAspectFit
-        imageView.image = UIImage()
+        imageView.image = model.memeImage
         topText.attributedText = getAttributedText(model.topText)
         bottomText.attributedText = getAttributedText(model.bottomText)        
     }
