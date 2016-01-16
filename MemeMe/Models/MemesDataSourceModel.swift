@@ -19,7 +19,6 @@ struct MemesDataSourceModel {
             
             if let memesArray = memesArray {
                 memes = memesArray
-                return memesArray
             }
         }
 
@@ -29,6 +28,28 @@ struct MemesDataSourceModel {
     static func AddMeme(model: MemeModel) -> Void {
         memes.append(model)
 
+        let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
+        NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    static func DeleteMemeAtLocalIdentifier(memeLocalIdentifier: String) -> Void {
+        let deletedMemeIndex = memes.indexOf { (item) -> Bool in
+            return item.memeImageLocalIdentifier == memeLocalIdentifier
+        }
+        
+        if let deletedMemeIndex = deletedMemeIndex {
+            memes.removeAtIndex(deletedMemeIndex)
+            WriteToDefaults(memes)
+        }
+    }
+    
+    static func DeleteMemeAtIndex(index: Int) -> Void {
+        memes.removeAtIndex(index)
+        WriteToDefaults(memes)
+    }
+    
+    private static func WriteToDefaults(memes: [MemeModel]) -> Void {
         let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
         NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
         NSUserDefaults.standardUserDefaults().synchronize()

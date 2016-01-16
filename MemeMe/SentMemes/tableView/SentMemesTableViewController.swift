@@ -23,6 +23,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("count = \(MemesDataSourceModel.GetMemes().count)")
         return MemesDataSourceModel.GetMemes().count
     }
     
@@ -48,4 +49,15 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
 
         return cell
     }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == .Delete) {
+            //add code ici for when you hit delete
+            print("delete \(indexPath.row)")
+            MemesDataSourceModel.DeleteMemeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
+    
+
 }
