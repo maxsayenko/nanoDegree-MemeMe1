@@ -126,11 +126,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="110" id="LsS-vL-h4H" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="110" id="LsS-vL-h4H" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LsS-vL-h4H" id="qpn-0q-Q2j">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="37G-pH-5hL">
@@ -174,6 +174,7 @@
                                         <connections>
                                             <outlet property="descriptionLabel" destination="yGl-rR-jRa" id="N9S-nh-utg"/>
                                             <outlet property="memeImageView" destination="37G-pH-5hL" id="kwg-xJ-E3H"/>
+                                            <segue destination="uOH-Re-2rz" kind="push" identifier="detailViewSegue" id="Y2A-wM-h5q"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -199,6 +200,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXh-Hy-tCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1612" y="-939"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="dwF-eT-n7v">
+            <objects>
+                <viewController storyboardIdentifier="detailView" id="uOH-Re-2rz" customClass="DetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Ct-vl-s2y"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Do-vN-cpx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vRX-4k-xOb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aJ3-Z0-VJ5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akg-vH-bPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2168" y="-563"/>
         </scene>
         <!--Sent Memes-->
         <scene sceneID="esJ-qd-dSf">
