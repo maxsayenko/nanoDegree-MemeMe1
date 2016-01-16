@@ -23,14 +23,14 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count = \(MemesDataSourceModel.GetMemes().count)")
-        return MemesDataSourceModel.GetMemes().count
+        print("count = \(MemesDataSourceModel.memes.count)")
+        return MemesDataSourceModel.memes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! TableViewCell
 
-        let memeModel = MemesDataSourceModel.GetMemes()[indexPath.row] as MemeModel
+        let memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
 
         cell.memeImageView.contentMode = .ScaleAspectFit
         cell.memeImageView.image = UIImage() // Need to set the image to something, so it can updated later

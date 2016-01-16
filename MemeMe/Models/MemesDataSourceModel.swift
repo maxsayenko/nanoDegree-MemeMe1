@@ -9,9 +9,9 @@
 import UIKit
 
 struct MemesDataSourceModel {
-    private static var memes:[MemeModel] = [MemeModel]()
+    static private(set) var memes:[MemeModel] = [MemeModel]()
     
-    static func GetMemes() -> [MemeModel] {
+    static func LoadMemes() -> [MemeModel] {
         let memesData = NSUserDefaults.standardUserDefaults().objectForKey("memes") as? NSData
         
         if let memesData = memesData {
