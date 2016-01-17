@@ -223,7 +223,11 @@
             <objects>
                 <tabBarController id="X5C-B1-tD0" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Sent Memes" id="7G0-RO-7oc">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="nfU-Qw-137"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="nfU-Qw-137">
+                            <connections>
+                                <segue destination="Gwx-t3-32N" kind="modal" id="eJb-E3-YCM"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5IR-p6-S8D">
                             <connections>
                                 <segue destination="Gwx-t3-32N" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="1rv-Dj-Kcd"/>
@@ -364,6 +368,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Gwx-t3-32N" userLabel="MemeEditor Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Gfk-uz-neb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6KJ-xp-gC4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -387,6 +392,7 @@
         <image name="tableIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1rv-Dj-Kcd"/>
         <segue reference="Y2A-wM-h5q"/>
     </inferredMetricsTieBreakers>
 </document>
