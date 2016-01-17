@@ -18,12 +18,10 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     override func viewDidAppear(animated: Bool) {
-        print("reload")
         tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count = \(MemesDataSourceModel.memes.count)")
         return MemesDataSourceModel.memes.count
     }
     

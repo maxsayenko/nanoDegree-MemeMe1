@@ -56,9 +56,6 @@ class CustomPhotoAlbum {
 
                 // Need to cast [assetPlaceholder] explicitly to NSArray
                 let assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset
-
-                print("memeLocalId = \(assetPlaceholder?.localIdentifier)")
-                
                 let enumeration: NSArray = [assetPlaceholder!]
                 
                 let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection)

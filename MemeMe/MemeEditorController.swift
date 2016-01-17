@@ -146,21 +146,6 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         return true
     }
     
-    // Image picker delegate
-    //    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
-    //
-    //        dismissViewControllerAnimated(true, completion: { () -> Void in
-    //        })
-    //
-    //        if let info = editingInfo {
-    //            print(info)
-    //        }
-    //
-    //        imageView.image = image
-    //        shareButton.enabled = true
-    //    }
-    
-    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let localId = ImageService.getImageLocalIdentifier(info)
         originalImageLocalIdentifier = localId
@@ -174,7 +159,6 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
                 }
             }
         } else {
-            print("Didn't get a LocalId")
             imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
             shareButton.enabled = true
             dismissViewControllerAnimated(true, completion: { () -> Void in
