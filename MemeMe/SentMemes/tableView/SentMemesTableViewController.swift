@@ -28,11 +28,8 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! TableViewCell
         let memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
-
-        cell.memeImageView.contentMode = .ScaleAspectFit
         
-        // Need to set the image to something (even nil), so it can be updated later
-        cell.memeImageView.image = memeModel.memeImage
+        cell.populate(memeModel)
         
         // Data retrieval and caching
         if(memeModel.memeImage == nil && memeModel.memeImageLocalIdentifier != "") {
@@ -47,8 +44,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
                 }
             })
         }
-
-        cell.descriptionLabel.text = "\(memeModel.topText) ... \(memeModel.bottomText)"
+        
         return cell
     }
     
@@ -62,7 +58,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "detailViewSegue") {
             let memeModel = MemesDataSourceModel.memes[tableView.indexPathForSelectedRow!.row] as MemeModel
-
+            
             let detailViewController = segue.destinationViewController as! DetailViewController
             detailViewController.memeModel = memeModel
         }
