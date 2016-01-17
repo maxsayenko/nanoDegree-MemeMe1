@@ -18,8 +18,15 @@ class ImageService {
         // TODO: Fix a bug for My Photo Stream album
         if(info[UIImagePickerControllerReferenceURL] != nil) {
             let url = info[UIImagePickerControllerReferenceURL] as! NSURL
-            let asset = PHAsset.fetchAssetsWithALAssetURLs([url], options: nil).lastObject as! PHAsset
-            return asset.localIdentifier
+            
+            let fetchResult = PHAsset.fetchAssetsWithALAssetURLs([url], options: nil)
+            if let asset = fetchResult.lastObject {
+                return asset.localIdentifier
+            } else {
+                print("ImageService - getImageLocalIdentifier - Mostlikely image is from 'My Photo stream'")
+                //http://stackoverflow.com/questions/26480526/alassetslibrary-assetforurl-always-returning-nil-for-photos-in-my-photo-stream
+                //https://github.com/questbeat/QBImagePicker/issues/41
+            }
         }
         return ""
     }
