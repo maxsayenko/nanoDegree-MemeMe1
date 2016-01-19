@@ -19,6 +19,10 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
+        print("reload \(MemesDataSourceModel.memes.count)")
+        if(MemesDataSourceModel.memes.count > 0) {
+            print(MemesDataSourceModel.memes[0].topText)
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,7 +31,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! TableViewCell
-        let memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
+        var memeModel = MemesDataSourceModel.memes[indexPath.row] as MemeModel
         
         cell.populate(memeModel)
         
@@ -57,10 +61,10 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "detailViewSegue") {
-            let memeModel = MemesDataSourceModel.memes[tableView.indexPathForSelectedRow!.row] as MemeModel
+            let memeId = MemesDataSourceModel.memes[tableView.indexPathForSelectedRow!.row].id
             
             let detailViewController = segue.destinationViewController as! DetailViewController
-            detailViewController.memeModel = memeModel
+            detailViewController.memeId = memeId
         }
     }
 }

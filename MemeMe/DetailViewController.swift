@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var memeModel: MemeModel?
+    var memeId: String = ""
+    
 
     @IBAction func deleteMemeTouch(sender: UIButton) {
         MemesDataSourceModel.DeleteMemeAtLocalIdentifier((memeModel?.memeImageLocalIdentifier)!)
@@ -19,8 +21,11 @@ class DetailViewController: UIViewController {
     @IBOutlet var memeImage: UIImageView!
     
     override func viewDidAppear(animated: Bool) {
-        if let image = memeModel?.memeImage {
-            memeImage.image = image
+        if(!memeId.isEmpty) {
+            memeModel = MemesDataSourceModel.GetMemeAtID(memeId)
+            if let image = memeModel?.memeImage {
+                memeImage.image = image
+            }
         }
     }
     
