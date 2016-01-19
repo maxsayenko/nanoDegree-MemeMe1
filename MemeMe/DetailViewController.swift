@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     var memeModel: MemeModel?
 
     @IBAction func deleteMemeTouch(sender: UIButton) {
+        MemesDataSourceModel.DeleteMemeAtLocalIdentifier((memeModel?.memeImageLocalIdentifier)!)
         navigationController?.popViewControllerAnimated(true)
     }
     
