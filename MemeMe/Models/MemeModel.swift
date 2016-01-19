@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeModel: NSObject {
+struct MemeModel {
     var id: String = ""
     var topText: String = ""
     var bottomText: String = ""
@@ -17,20 +17,20 @@ class MemeModel: NSObject {
     var memeImage: UIImage?
     var memeImageLocalIdentifier: String = ""
     
-    func encodeWithCoder(aCoder: NSCoder!) {
-        aCoder.encodeObject(topText, forKey: "topText")
-        aCoder.encodeObject(bottomText, forKey: "bottomText")
-        aCoder.encodeObject(originalImageLocalIdentifier, forKey: "originalImageLocalIdentifier")
-        aCoder.encodeObject(memeImageLocalIdentifier, forKey: "memeImageLocalIdentifier")
-    }
-    
-    init(coder aDecoder: NSCoder!) {
-        topText = aDecoder.decodeObjectForKey("topText") as! String
-        bottomText = aDecoder.decodeObjectForKey("bottomText") as! String
-        originalImageLocalIdentifier = aDecoder.decodeObjectForKey("originalImageLocalIdentifier") as! String
-        memeImageLocalIdentifier = aDecoder.decodeObjectForKey("memeImageLocalIdentifier") as! String
-    }
-    
-    override init() {
-    }
+//    func encodeWithCoder(aCoder: NSCoder!) {
+//        aCoder.encodeObject(topText, forKey: "topText")
+//        aCoder.encodeObject(bottomText, forKey: "bottomText")
+//        aCoder.encodeObject(originalImageLocalIdentifier, forKey: "originalImageLocalIdentifier")
+//        aCoder.encodeObject(memeImageLocalIdentifier, forKey: "memeImageLocalIdentifier")
+//    }
+//    
+//    init(coder aDecoder: NSCoder!) {
+//        topText = aDecoder.decodeObjectForKey("topText") as! String
+//        bottomText = aDecoder.decodeObjectForKey("bottomText") as! String
+//        originalImageLocalIdentifier = aDecoder.decodeObjectForKey("originalImageLocalIdentifier") as! String
+//        memeImageLocalIdentifier = aDecoder.decodeObjectForKey("memeImageLocalIdentifier") as! String
+//    }
+//    
+//    override init() {
+//    }
 }
