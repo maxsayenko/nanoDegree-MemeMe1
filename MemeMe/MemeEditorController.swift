@@ -142,10 +142,12 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         prepareTextField(topTextField, defaultText: "TOP")
         prepareTextField(bottomTextField, defaultText: "BOTTOM")
 
+        // in Editing mode
         if let model = memeModel {
             imageView.image = model.originalImage
             topTextField.text = model.topText
             bottomTextField.text = model.bottomText
+            shareButton.enabled = true
         }
     }
     
