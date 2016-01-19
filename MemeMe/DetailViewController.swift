@@ -11,6 +11,10 @@ import UIKit
 class DetailViewController: UIViewController {
     var memeModel: MemeModel?
 
+    @IBAction func deleteMemeTouch(sender: UIButton) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     @IBOutlet var memeImage: UIImageView!
     
     override func viewDidAppear(animated: Bool) {

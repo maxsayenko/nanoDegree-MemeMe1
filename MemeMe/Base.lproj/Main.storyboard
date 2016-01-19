@@ -200,13 +200,27 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfO-eg-Cbh">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3A-x1-AEM">
+                                <rect key="frame" x="101" y="72" width="120" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="34j-GQ-HXe"/>
+                                    <constraint firstAttribute="height" constant="25" id="y1j-ZO-hyn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Delete Meme"/>
+                                <connections>
+                                    <action selector="deleteMemeTouch:" destination="uOH-Re-2rz" eventType="touchUpInside" id="Xid-07-ewC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TfO-eg-Cbh" firstAttribute="bottom" secondItem="4Do-vN-cpx" secondAttribute="top" id="7aS-nj-UxJ"/>
                             <constraint firstAttribute="trailing" secondItem="TfO-eg-Cbh" secondAttribute="trailing" id="9qR-4c-mh8"/>
                             <constraint firstItem="TfO-eg-Cbh" firstAttribute="top" secondItem="8Ct-vl-s2y" secondAttribute="bottom" id="RjI-td-u5k"/>
+                            <constraint firstItem="d3A-x1-AEM" firstAttribute="top" secondItem="8Ct-vl-s2y" secondAttribute="bottom" constant="8" id="d8v-D4-9HO"/>
                             <constraint firstItem="TfO-eg-Cbh" firstAttribute="leading" secondItem="vRX-4k-xOb" secondAttribute="leading" id="fcN-wC-Zit"/>
+                            <constraint firstItem="d3A-x1-AEM" firstAttribute="centerX" secondItem="TfO-eg-Cbh" secondAttribute="centerX" constant="1" id="w08-wv-dpl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aJ3-Z0-VJ5">
@@ -222,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akg-vH-bPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2168" y="-563"/>
+            <point key="canvasLocation" x="2190" y="-641"/>
         </scene>
         <!--Sent Memes-->
         <scene sceneID="esJ-qd-dSf">
@@ -350,13 +364,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcL-IY-Zph" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="369.99999999999994"/>
+            <point key="canvasLocation" x="1613" y="369"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P7W-hK-05f">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L2k-hB-dIg" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CIA-6l-zHN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Wa-bm-NMq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
