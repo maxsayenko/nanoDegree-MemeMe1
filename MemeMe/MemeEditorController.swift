@@ -11,12 +11,15 @@ import Photos
 
 
 class MemeEditorController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    // Model for editing scenario
+    var memeModel: MemeModel?
+    
+    // Local instances
     var imagePicker = UIImagePickerController()
     var shouldSlideView: Bool = false
 
     //ImageData
     var originalImageLocalIdentifier: String = ""
-    
     
     // Constraints
     let textConstraintPortraitMode: CGFloat = 100
@@ -138,6 +141,12 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         
         prepareTextField(topTextField, defaultText: "TOP")
         prepareTextField(bottomTextField, defaultText: "BOTTOM")
+
+        if let model = memeModel {
+            imageView.image = model.originalImage
+            topTextField.text = model.topText
+            bottomTextField.text = model.bottomText
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){

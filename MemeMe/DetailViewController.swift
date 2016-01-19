@@ -18,4 +18,12 @@ class DetailViewController: UIViewController {
             memeImage.image = image
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "editorViewSegue") {
+            let navigationViewController = segue.destinationViewController as! UINavigationController
+            let editorViewController = navigationViewController.viewControllers.first as! MemeEditorController
+            editorViewController.memeModel = memeModel
+        }
+    }
 }

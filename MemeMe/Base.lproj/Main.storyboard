@@ -209,7 +209,13 @@
                             <constraint firstItem="TfO-eg-Cbh" firstAttribute="leading" secondItem="vRX-4k-xOb" secondAttribute="leading" id="fcN-wC-Zit"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aJ3-Z0-VJ5"/>
+                    <navigationItem key="navigationItem" id="aJ3-Z0-VJ5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Wou-TK-6tI">
+                            <connections>
+                                <segue destination="Gwx-t3-32N" kind="modal" identifier="editorViewSegue" id="PT5-Py-mcS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="memeImage" destination="TfO-eg-Cbh" id="zEy-Io-tze"/>
                     </connections>
@@ -393,7 +399,7 @@
         <image name="tableIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1rv-Dj-Kcd"/>
         <segue reference="Y2A-wM-h5q"/>
+        <segue reference="PT5-Py-mcS"/>
     </inferredMetricsTieBreakers>
 </document>
