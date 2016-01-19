@@ -9,6 +9,7 @@
 import UIKit
 
 class MemeModel: NSObject {
+    var id: String = ""
     var topText: String = ""
     var bottomText: String = ""
     var originalImage: UIImage?

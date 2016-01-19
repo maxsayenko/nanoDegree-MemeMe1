@@ -12,7 +12,8 @@ import Photos
 
 class MemeEditorController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     // Model for editing scenario
-    var memeModel: MemeModel?
+    var editMemeModel: MemeModel?
+    var isEditingMeme = false
     
     // Local instances
     var imagePicker = UIImagePickerController()
@@ -59,17 +60,27 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {
             (activity, success, items, error) in
+            
+            if(success) {
+                CustomPhotoAlbum.sharedInstance.saveImage(memeImage) { (localIdentifier) -> Void in
+                    let memeModel = MemeModel()
+                    memeModel.topText = self.topTextField.text!
+                    memeModel.bottomText = self.bottomTextField.text!
+                    memeModel.originalImage = self.imageView.image!
+                    memeModel.originalImageLocalIdentifier = self.originalImageLocalIdentifier
+                    memeModel.memeImage = memeImage
+                    memeModel.memeImageLocalIdentifier = localIdentifier
+                    memeModel.id = NSUUID().UUIDString
+                    
+                    print(memeModel.id)
+                    
+                    if(self.isEditingMeme) {
+                        MemesDataSourceModel.UpdateMemeAtID((self.editMemeModel?.id)!, model: memeModel)
+                    } else {
+                        MemesDataSourceModel.AddMeme(memeModel)                        
+                    }
 
-            CustomPhotoAlbum.sharedInstance.saveImage(memeImage) { (localIdentifier) -> Void in
-                let memeModel = MemeModel()
-                memeModel.topText = self.topTextField.text!
-                memeModel.bottomText = self.bottomTextField.text!
-                memeModel.originalImage = self.imageView.image!
-                memeModel.originalImageLocalIdentifier = self.originalImageLocalIdentifier
-                memeModel.memeImage = memeImage
-                memeModel.memeImageLocalIdentifier = localIdentifier
-
-                MemesDataSourceModel.AddMeme(memeModel)
+                }
             }
         }
         presentViewController(activityViewController, animated: true, completion: nil)
@@ -143,11 +154,12 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         prepareTextField(bottomTextField, defaultText: "BOTTOM")
 
         // in Editing mode
-        if let model = memeModel {
+        if let model = editMemeModel {
+            isEditingMeme = true
+            shareButton.enabled = true
             imageView.image = model.originalImage
             topTextField.text = model.topText
             bottomTextField.text = model.bottomText
-            shareButton.enabled = true
         }
     }
     

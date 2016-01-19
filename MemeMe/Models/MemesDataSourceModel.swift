@@ -46,6 +46,21 @@ struct MemesDataSourceModel {
         WriteToDefaults(memes)
     }
     
+    static func UpdateMemeAtID(id: String, model: MemeModel) -> Void {
+        let updatingMemeIndex = memes.indexOf { (item) -> Bool in
+            return item.id == id
+        }
+        
+        let updatingMeme = memes[updatingMemeIndex!]
+        
+        updatingMeme.memeImage = model.memeImage
+        updatingMeme.memeImageLocalIdentifier = model.memeImageLocalIdentifier
+        updatingMeme.originalImage = model.originalImage
+        updatingMeme.originalImageLocalIdentifier = model.originalImageLocalIdentifier
+        updatingMeme.topText = model.topText
+        updatingMeme.bottomText = model.bottomText
+    }
+    
     private static func WriteToDefaults(memes: [MemeModel]) -> Void {
         let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
         NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
