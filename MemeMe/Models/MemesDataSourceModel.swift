@@ -54,22 +54,30 @@ struct MemesDataSourceModel {
         let updatingMemeIndex = memes.indexOf { (item) -> Bool in
             return item.id == id
         }
+
+        memes[updatingMemeIndex!].memeImage = model.memeImage
+        memes[updatingMemeIndex!].memeImageLocalIdentifier = model.memeImageLocalIdentifier
+        memes[updatingMemeIndex!].originalImage = model.originalImage
+        memes[updatingMemeIndex!].originalImageLocalIdentifier = model.originalImageLocalIdentifier
+        memes[updatingMemeIndex!].topText = model.topText
+        memes[updatingMemeIndex!].bottomText = model.bottomText
         
-        let updatingMeme = memes[updatingMemeIndex!]
+        print(memes[updatingMemeIndex!].topText)
+    }
+    
+    static func GetMemeAtID(id: String) -> MemeModel {
+        let updatingMemeIndex = memes.indexOf { (item) -> Bool in
+            return item.id == id
+        }
         
-        updatingMeme.memeImage = model.memeImage
-        updatingMeme.memeImageLocalIdentifier = model.memeImageLocalIdentifier
-        updatingMeme.originalImage = model.originalImage
-        updatingMeme.originalImageLocalIdentifier = model.originalImageLocalIdentifier
-        updatingMeme.topText = model.topText
-        updatingMeme.bottomText = model.bottomText
+        return memes[updatingMemeIndex!]
     }
     
     private static func WriteToDefaults(memes: [MemeModel]) -> Void {
         if(isPersisted) {
-            let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
-            NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
-            NSUserDefaults.standardUserDefaults().synchronize()
+//            let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
+//            NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
+//            NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
 }

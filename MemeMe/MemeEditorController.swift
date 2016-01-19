@@ -63,7 +63,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
             
             if(success) {
                 CustomPhotoAlbum.sharedInstance.saveImage(memeImage) { (localIdentifier) -> Void in
-                    let memeModel = MemeModel()
+                    var memeModel = MemeModel()
                     memeModel.topText = self.topTextField.text!
                     memeModel.bottomText = self.bottomTextField.text!
                     memeModel.originalImage = self.imageView.image!

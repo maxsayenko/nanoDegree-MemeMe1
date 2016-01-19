@@ -24,7 +24,7 @@ class SentMemesGridViewController: UIViewController, UICollectionViewDataSource,
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridCell
 
-        let memeModel = MemesDataSourceModel.memes[indexPath.item] as MemeModel
+        var memeModel = MemesDataSourceModel.memes[indexPath.item] as MemeModel
 
         cell.populate(memeModel)
 
