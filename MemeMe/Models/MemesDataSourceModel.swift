@@ -27,10 +27,7 @@ struct MemesDataSourceModel {
     
     static func AddMeme(model: MemeModel) -> Void {
         memes.append(model)
-
-        let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
-        NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        WriteToDefaults(memes)
     }
     
     static func DeleteMemeAtLocalIdentifier(memeLocalIdentifier: String) -> Void {
