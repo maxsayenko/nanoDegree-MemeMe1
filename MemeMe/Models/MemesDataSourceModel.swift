@@ -9,19 +9,23 @@
 import UIKit
 
 struct MemesDataSourceModel {
+    static private let isPersisted = false
+    
     static private(set) var memes:[MemeModel] = [MemeModel]()
     
     static func LoadMemes() -> [MemeModel] {
-        let memesData = NSUserDefaults.standardUserDefaults().objectForKey("memes") as? NSData
-        
-        if let memesData = memesData {
-            let memesArray = NSKeyedUnarchiver.unarchiveObjectWithData(memesData) as? [MemeModel]
+        if(isPersisted) {
+            let memesData = NSUserDefaults.standardUserDefaults().objectForKey("memes") as? NSData
             
-            if let memesArray = memesArray {
-                memes = memesArray
+            if let memesData = memesData {
+                let memesArray = NSKeyedUnarchiver.unarchiveObjectWithData(memesData) as? [MemeModel]
+                
+                if let memesArray = memesArray {
+                    memes = memesArray
+                }
             }
         }
-
+        
         return memes
     }
     
@@ -62,8 +66,10 @@ struct MemesDataSourceModel {
     }
     
     private static func WriteToDefaults(memes: [MemeModel]) -> Void {
-        let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
-        NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        if(isPersisted) {
+            let memesData = NSKeyedArchiver.archivedDataWithRootObject(memes)
+            NSUserDefaults.standardUserDefaults().setObject(memesData, forKey: "memes")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
     }
 }

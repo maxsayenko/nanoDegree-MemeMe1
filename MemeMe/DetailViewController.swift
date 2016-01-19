@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         if(segue.identifier == "editorViewSegue") {
             let navigationViewController = segue.destinationViewController as! UINavigationController
             let editorViewController = navigationViewController.viewControllers.first as! MemeEditorController
-            editorViewController.memeModel = memeModel
+            editorViewController.editMemeModel = memeModel
         }
     }
 }

@@ -71,9 +71,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
                     memeModel.memeImage = memeImage
                     memeModel.memeImageLocalIdentifier = localIdentifier
                     memeModel.id = NSUUID().UUIDString
-                    
-                    print(memeModel.id)
-                    
+
                     if(self.isEditingMeme) {
                         MemesDataSourceModel.UpdateMemeAtID((self.editMemeModel?.id)!, model: memeModel)
                     } else {
