@@ -29,6 +29,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet var shareButton: UIBarButtonItem!
     @IBOutlet var topTextField: UITextField!
     @IBOutlet var bottomTextField: UITextField!
+    @IBOutlet var cameraButton: UIBarButtonItem!
     
     @IBAction func topTextEditing(sender: UITextField) {
         if(sender.text == "TOP") {
@@ -132,6 +133,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         imageView.contentMode = .ScaleAspectFit
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
+        
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
         
         prepareTextField(topTextField, defaultText: "TOP")
         prepareTextField(bottomTextField, defaultText: "BOTTOM")

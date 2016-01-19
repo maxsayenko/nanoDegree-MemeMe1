@@ -335,6 +335,7 @@
                     <connections>
                         <outlet property="bottomTextBottomConstraint" destination="72h-lr-3Ho" id="ZRb-OF-JuX"/>
                         <outlet property="bottomTextField" destination="oil-Qb-hgU" id="arQ-fK-KtQ"/>
+                        <outlet property="cameraButton" destination="jcR-iB-wTO" id="rR5-jf-HOM"/>
                         <outlet property="imageView" destination="3Sd-85-hs5" id="c0c-4o-k1A"/>
                         <outlet property="shareButton" destination="sZV-8v-xbD" id="f7o-Qr-aWa"/>
                         <outlet property="topTextField" destination="MJ3-Gi-Wi4" id="1IE-Uy-hvk"/>
