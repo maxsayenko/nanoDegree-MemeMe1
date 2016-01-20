@@ -290,6 +290,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
                                     <action selector="topTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="cLA-Sm-SS1"/>
+                                    <outlet property="delegate" destination="fkZ-TC-v5b" id="Dxj-3i-dZn"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oil-Qb-hgU">
@@ -304,6 +305,7 @@
                                 <connections>
                                     <action selector="bottomTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="tqm-u3-qGG"/>
                                     <action selector="bottomTextEditingEnd:" destination="fkZ-TC-v5b" eventType="editingDidEnd" id="Kka-4L-nUY"/>
+                                    <outlet property="delegate" destination="fkZ-TC-v5b" id="pCO-09-ZrE"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -410,6 +412,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1rv-Dj-Kcd"/>
-        <segue reference="Y2A-wM-h5q"/>
+        <segue reference="yIR-qW-E34"/>
     </inferredMetricsTieBreakers>
 </document>

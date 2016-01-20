@@ -10,7 +10,7 @@ import UIKit
 import Photos
 
 
-class MemeEditorController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class MemeEditorController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     // Model for editing scenario
     var editMemeModel: MemeModel?
     var isEditingMeme = false
@@ -162,9 +162,15 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         }
     }
     
+    // Dismissing keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     override func prefersStatusBarHidden() -> Bool {
