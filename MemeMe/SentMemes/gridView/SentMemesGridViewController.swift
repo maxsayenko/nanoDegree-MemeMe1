@@ -48,10 +48,10 @@ class SentMemesGridViewController: UIViewController, UICollectionViewDataSource,
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "detailViewSegue") {
             let cellIndex = collectionView.indexPathForCell(sender as! UICollectionViewCell)?.row
-            let memeModel = MemesDataSourceModel.memes[cellIndex!] as MemeModel
+            let memeId = MemesDataSourceModel.memes[cellIndex!].id
             
             let detailViewController = segue.destinationViewController as! DetailViewController
-            detailViewController.memeModel = memeModel
+            detailViewController.memeId = memeId
         }
     }
 }
