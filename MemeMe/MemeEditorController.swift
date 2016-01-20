@@ -134,14 +134,6 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: view.window)
-        
-        
-        for familyName in UIFont.familyNames() {
-            print("\n-- \(familyName) \n")
-            for fontName in UIFont.fontNamesForFamilyName(familyName) {
-                print(fontName)
-            }
-        }
     }
     
     override func viewWillDisappear(animated: Bool) {
