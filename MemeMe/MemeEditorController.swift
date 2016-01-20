@@ -143,6 +143,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imageView.contentMode = .ScaleAspectFit
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
@@ -159,6 +160,10 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
             imageView.image = model.originalImage
             topTextField.text = model.topText
             bottomTextField.text = model.bottomText
+        }
+        
+        if(UIDevice.currentDevice().orientation.isLandscape) {
+            setLandscapeMode()
         }
     }
     
@@ -232,13 +237,17 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         // Landscape mode
         if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
-            topTextTopConstraint.constant = textConstraintLandscapeMode
-            bottomTextBottomConstraint.constant = textConstraintLandscapeMode
+            setLandscapeMode()
         }
-            // Portrait mode
+        // Portrait mode
         else {
             topTextTopConstraint.constant = textConstraintPortraitMode
             bottomTextBottomConstraint.constant = textConstraintPortraitMode
         }
+    }
+    
+    private func setLandscapeMode() {
+        topTextTopConstraint.constant = textConstraintLandscapeMode
+        bottomTextBottomConstraint.constant = textConstraintLandscapeMode
     }
 }
