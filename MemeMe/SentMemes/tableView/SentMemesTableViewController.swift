@@ -19,10 +19,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
-        print("reload \(MemesDataSourceModel.memes.count)")
-        if(MemesDataSourceModel.memes.count > 0) {
-            print(MemesDataSourceModel.memes[0].topText)
-        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

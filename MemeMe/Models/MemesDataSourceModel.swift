@@ -61,8 +61,6 @@ struct MemesDataSourceModel {
         memes[updatingMemeIndex!].originalImageLocalIdentifier = model.originalImageLocalIdentifier
         memes[updatingMemeIndex!].topText = model.topText
         memes[updatingMemeIndex!].bottomText = model.bottomText
-        
-        print(memes[updatingMemeIndex!].topText)
     }
     
     static func GetMemeAtID(id: String) -> MemeModel {
