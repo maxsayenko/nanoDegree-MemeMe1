@@ -243,11 +243,6 @@
             <objects>
                 <tabBarController id="X5C-B1-tD0" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Sent Memes" id="7G0-RO-7oc">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="nfU-Qw-137">
-                            <connections>
-                                <segue destination="Gwx-t3-32N" kind="modal" id="eJb-E3-YCM"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5IR-p6-S8D">
                             <connections>
                                 <segue destination="Gwx-t3-32N" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="1rv-Dj-Kcd"/>
@@ -406,7 +401,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2j-gn-IWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="369.99999999999994"/>
+            <point key="canvasLocation" x="1070" y="369"/>
         </scene>
     </scenes>
     <resources>
@@ -414,7 +409,7 @@
         <image name="tableIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1rv-Dj-Kcd"/>
         <segue reference="Y2A-wM-h5q"/>
-        <segue reference="PT5-Py-mcS"/>
     </inferredMetricsTieBreakers>
 </document>
