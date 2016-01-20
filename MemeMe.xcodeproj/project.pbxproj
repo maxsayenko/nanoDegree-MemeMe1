@@ -14,6 +14,7 @@
 		E232F4361BFEBC0B00E659C4 /* MemeEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E232F4351BFEBC0B00E659C4 /* MemeEditorController.swift */; };
 		E26742501C0819FD00E3EF70 /* MemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267424F1C0819FD00E3EF70 /* MemeModel.swift */; };
 		E2728A131C4A484A00213E2E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2728A121C4A484A00213E2E /* DetailViewController.swift */; };
+		E2728A161C501B5C00213E2E /* ufonts.com_impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2728A151C501B5C00213E2E /* ufonts.com_impact.ttf */; };
 		E2958FDB1BEDE22D00B7EBE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2958FDA1BEDE22D00B7EBE0 /* AppDelegate.swift */; };
 		E2958FE01BEDE22E00B7EBE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2958FDE1BEDE22E00B7EBE0 /* Main.storyboard */; };
 		E2958FE21BEDE22E00B7EBE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2958FE11BEDE22E00B7EBE0 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		E232F4351BFEBC0B00E659C4 /* MemeEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeEditorController.swift; sourceTree = "<group>"; };
 		E267424F1C0819FD00E3EF70 /* MemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeModel.swift; sourceTree = "<group>"; };
 		E2728A121C4A484A00213E2E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E2728A151C501B5C00213E2E /* ufonts.com_impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ufonts.com_impact.ttf; sourceTree = "<group>"; };
 		E2958FD71BEDE22D00B7EBE0 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2958FDA1BEDE22D00B7EBE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2958FDF1BEDE22E00B7EBE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		E2958FD91BEDE22D00B7EBE0 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				E2728A151C501B5C00213E2E /* ufonts.com_impact.ttf */,
 				E22231BA1C36373B00535E38 /* SentMemes */,
 				E267424E1C0819E800E3EF70 /* Models */,
 				E2958FDA1BEDE22D00B7EBE0 /* AppDelegate.swift */,
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2FA4C381BEDE8DA009C1105 /* Images in Resources */,
+				E2728A161C501B5C00213E2E /* ufonts.com_impact.ttf in Resources */,
 				E2958FE51BEDE22E00B7EBE0 /* LaunchScreen.storyboard in Resources */,
 				E2958FE21BEDE22E00B7EBE0 /* Assets.xcassets in Resources */,
 				E2958FE01BEDE22E00B7EBE0 /* Main.storyboard in Resources */,

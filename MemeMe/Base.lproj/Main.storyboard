@@ -4,6 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="ufonts.com_impact.ttf">
+            <string>Impact</string>
+            <string>Impact</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Sent Memes Grid View Controller-->
         <scene sceneID="ix4-6O-krq">
@@ -286,7 +292,7 @@
                                     <constraint firstAttribute="height" constant="35" id="zdR-EF-30E"/>
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
                                     <action selector="topTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="cLA-Sm-SS1"/>
@@ -300,7 +306,7 @@
                                     <constraint firstAttribute="height" constant="35" identifier="height" id="35s-Bx-JM2"/>
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
                                     <action selector="bottomTextEditing:" destination="fkZ-TC-v5b" eventType="editingDidBegin" id="tqm-u3-qGG"/>

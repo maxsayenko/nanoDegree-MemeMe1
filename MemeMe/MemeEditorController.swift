@@ -120,7 +120,7 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
             NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSFontAttributeName : UIFont(name: "Impact", size: 40)!,
             NSStrokeWidthAttributeName : -3.0
         ]
         textField.defaultTextAttributes = memeTextAttributes
@@ -134,6 +134,14 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: view.window)
+        
+        
+        for familyName in UIFont.familyNames() {
+            print("\n-- \(familyName) \n")
+            for fontName in UIFont.fontNamesForFamilyName(familyName) {
+                print(fontName)
+            }
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
