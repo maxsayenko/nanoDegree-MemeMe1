@@ -77,7 +77,8 @@ class MemeEditorController: UIViewController, UINavigationControllerDelegate, UI
                     } else {
                         MemesDataSourceModel.AddMeme(memeModel)                        
                     }
-
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
             }
         }
